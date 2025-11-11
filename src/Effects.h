@@ -158,7 +158,7 @@ public:
         { // loop over list
             bool done = effectsList[i]->update(frameTimeSec); // step this effect
             if (done)
-            { // if finished
+            {
                 delete effectsList[i]; // free memory
                 effectsList.erase(effectsList.begin() + i); // remove from list
             }
@@ -260,7 +260,7 @@ public:
         }
     }
 
-    bool update(float /*frameTimeSec*/) override
+    bool update(float) override
     {
         if (framesLived < totalFrames)
             ++framesLived; // advance one frame
@@ -303,7 +303,7 @@ public:
         return sound.getStatus() == sf::SoundSource::Status::Stopped; // done when sound stops
     }
 
-    void draw(sf::RenderWindow&) const override { /* audio */ }
+    void draw(sf::RenderWindow&) const override { }
 
 private:
     sf::SoundBuffer buffer; // holds audio samples
