@@ -1,0 +1,6 @@
+C:\Users\damia\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/damia/AppData/Local/Programs/CLion/bin/ninja/win/x64/ninja.exe --profiling-format=google-trace --profiling-output=CMakeFiles\clion-event-trace.json -G Ninja -S "C:\Users\damia\OneDrive\Desktop\New folder\Minesweeper" -B "C:\Users\damia\OneDrive\Desktop\New folder\Minesweeper\cmake-build-debug-event-trace"
+-- Configuring libogg 1.3.5
+-- Configuring vorbis 1.3.7
+-- Configuring done (8.5s)
+-- Generating done (0.4s)
+-- Build files have been written to: C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace

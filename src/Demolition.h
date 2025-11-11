@@ -3,7 +3,9 @@
 //
 #ifndef DEMOLITION_H
 #define DEMOLITION_H
+#include "Effects.h"
 void title();
+
 inline void Demolition()
 {
     int countMinesDemolition(bool grid[20][20], int rows, int columns);
@@ -56,8 +58,16 @@ inline void Demolition()
     Lives.setString(livesStream.str());
     demolition.create(sf :: VideoMode({1920,1080}), "MINESWEEPER", sf :: State :: Fullscreen);
     demolition.setFramerateLimit(60);
+
+    Effects effects;
+    sf::Clock clk;
+    auto baseCenter = demolition.getView().getCenter();
+    bool didExplode=false;
+
     while (demolition.isOpen())
     {
+        float dt = clk.restart().asSeconds();
+
         while (const std :: optional event = demolition.pollEvent())
         {
             //ends program if the user closes the window
@@ -99,6 +109,16 @@ inline void Demolition()
                                     livesStream.str(std::string());
                                     livesStream << lives;
                                     Lives.setString(livesStream.str());
+
+                                    if (lives<=0 && !didExplode)
+                                    {
+                                        float cx = 610.f + 35.f*rows + 17.5f;
+                                        float cy = 190.f + 35.f*columns + 17.5f;
+                                        effects.spawn<ExplosionSoundEffect>("../../src/imagesAudio/explosion.wav");
+                                        effects.spawn<RingWaveEffect>(sf::Vector2f{cx,cy}, 0.f, 1300.f, 0.3f, sf::Color(255,80,30));
+                                        effects.spawn<ScreenFlashEffect>(sf::Color(255,255,255,220), 0.25f);
+                                        didExplode=true;
+                                    }
                                 }
                                 selected[rows][columns]=true;
                             }
@@ -113,10 +133,11 @@ inline void Demolition()
                 }
             }
         }
-        demolition.clear(sf :: Color :: Black);
-        sf :: Texture texture("../../src/Minesweeper_demolition.png", false, sf :: IntRect({0,0},{1920,1080}));
-        sf::Sprite sprite(texture);
-        demolition.draw(sprite);
+
+        effects.update(dt);
+
+        loadScreen(demolition, "../../src/imagesAudio/Minesweeper_demolition.png");
+
         for (rows=0; rows<20; rows++)
         {
             for (columns=0; columns<20; columns++)
@@ -124,80 +145,53 @@ inline void Demolition()
                 //if the square is not a mine
                 if (grid[rows][columns] == false)
                 {
-                    int mineCount=countMinesMedium(grid,rows,columns);
+                    int mineCount=countMinesDemolition(grid,rows,columns);
                     //switch case for displaying number squares
                     switch (mineCount)
                     {
                         case 1:
                         {
-                            sf :: Texture Num1("../../src/minNum1Medium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite num1(Num1);
-                            num1.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(num1);
+                            drawTile(demolition, "../../src/imagesAudio/minNum1Medium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                             break;
                         }
                         case 2:
                         {
-                            sf :: Texture Num2("../../src/minNum2Medium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite num2(Num2);
-                            num2.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(num2);
+                            drawTile(demolition, "../../src/imagesAudio/minNum2Medium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                             break;
                         }
                         case 3:
                         {
-                            sf :: Texture Num3("../../src/minNum3Medium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite num3(Num3);
-                            num3.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(num3);
+                            drawTile(demolition, "../../src/imagesAudio/minNum3Medium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                             break;
                         }
                         case 4:
                         {
-                            sf :: Texture Num4("../../src/minNum4Medium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite num4(Num4);
-                            num4.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(num4);
+                            drawTile(demolition, "../../src/imagesAudio/minNum4Medium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                             break;
                         }
                         case 5:
                         {
-                            sf :: Texture Num5("../../src/minNum5Medium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite num5(Num5);
-                            num5.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(num5);
+                            drawTile(demolition, "../../src/imagesAudio/minNum5Medium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                             break;
                         }
                         case 6:
                         {
-                            sf :: Texture Num6("../../src/minNum6Medium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite num6(Num6);
-                            num6.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(num6);
+                            drawTile(demolition, "../../src/imagesAudio/minNum6Medium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                             break;
                         }
                         case 7:
                         {
-                            sf :: Texture Num7("../../src/minNum7Medium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite num7(Num7);
-                            num7.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(num7);
+                            drawTile(demolition, "../../src/imagesAudio/minNum7Medium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                             break;
                         }
                         case 8:
                         {
-                            sf :: Texture Num8("../../src/minNum8Medium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite num8(Num8);
-                            num8.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(num8);
+                            drawTile(demolition, "../../src/imagesAudio/minNum8Medium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                             break;
                         }
                         default:
                         {
-                            sf :: Texture Empty("../../src/emptySelectedSquareMedium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite empty(Empty);
-                            empty.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(empty);
+                            drawTile(demolition, "../../src/imagesAudio/emptySelectedSquareMedium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                             //if an empty square is selected, the floodDemolition function is called to select other safe squares near it
                             if (selected[rows][columns])
                             {
@@ -210,10 +204,7 @@ inline void Demolition()
                 //if the square is a mine
                 if (grid[rows][columns] == true)
                 {
-                    sf :: Texture Mine("../../src/mineMedium.png", false, sf :: IntRect({0,0},{35,35}));
-                    sf::Sprite mine(Mine);
-                    mine.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                    demolition.draw(mine);
+                    drawTile(demolition, "../../src/imagesAudio/mineMedium.png",     35, 35, 610.f + (35*rows), 190.f + (35*columns));
                     //if the square has been selected and has not been scored yet then add 500 points
                     if (selected[rows][columns] && !scored[rows][columns])
                     {
@@ -236,10 +227,7 @@ inline void Demolition()
                 //if the square is not selected then redraw it over the generated board
                 if (selected[rows][columns] == false)
                 {
-                    sf :: Texture Square("../../src/emptySquareMedium.png", false, sf :: IntRect({0,0},{35,35}));
-                    sf::Sprite square(Square);
-                    square.setPosition({610.f+(35*rows), 190.f+(35*columns)});
-                    demolition.draw(square);
+                    drawTile(demolition, "../../src/imagesAudio/emptySquareMedium.png", 35, 35, 610.f + (35*rows), 190.f + (35*columns));
                 }
             }
         }
@@ -285,10 +273,7 @@ inline void Demolition()
                     {
                         if (grid[rows][columns] == true)
                         {
-                            sf :: Texture Mine("../../src/mineMedium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite mine(Mine);
-                            mine.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(mine);
+                            drawTile(demolition, "../../src/imagesAudio/mineMedium.png",     35, 35, 610.f + (35*rows), 190.f + (35*columns));
                         }
                     }
                 }
@@ -301,10 +286,7 @@ inline void Demolition()
                     {
                         if (grid[rows][columns] == true)
                         {
-                            sf :: Texture MineWin("../../src/mineWinMedium.png", false, sf :: IntRect({0,0},{35,35}));
-                            sf::Sprite mineWin(MineWin);
-                            mineWin.setPosition({610.f+(35*rows),190.f+(35*columns)});
-                            demolition.draw(mineWin);
+                            drawTile(demolition, "../../src/imagesAudio/mineWinMedium.png",  35, 35, 610.f + (35*rows), 190.f + (35*columns));
                         }
                     }
                 }
@@ -314,32 +296,22 @@ inline void Demolition()
         demolition.draw(Lives);
         if (sf::Mouse::getPosition(demolition).x >=17 && sf::Mouse::getPosition(demolition).x <=189 && sf::Mouse::getPosition(demolition).y >=14 && sf::Mouse::getPosition(demolition).y <=89)
         {
-            sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite highlightedBackButton(HighlightedBackButton);
-            highlightedBackButton.setPosition({17.f, 14.f});
-            demolition.draw(highlightedBackButton);
+            drawTile(demolition, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
         }
         else
         {
-            sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite backButton(BackButton);
-            backButton.setPosition({17.f, 14.f});
-            demolition.draw(backButton);
+            drawTile(demolition, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
         }
         if (sf::Mouse::getPosition(demolition).x >=1731 && sf::Mouse::getPosition(demolition).x <=1901 && sf::Mouse::getPosition(demolition).y >=14 && sf::Mouse::getPosition(demolition).y <=89)
         {
-            sf :: Texture HighlightedResetButton ("../../src/resetButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite highlightedResetButton(HighlightedResetButton);
-            highlightedResetButton.setPosition({1730.f, 14.f});
-            demolition.draw(highlightedResetButton);
+            drawTile(demolition, "../../src/imagesAudio/resetButtonHighlighted.png", 173, 77, 1730.f, 14.f);
         }
         else
         {
-            sf :: Texture ResetButton ("../../src/resetButton.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite resetButton(ResetButton);
-            resetButton.setPosition({1730.f, 14.f});
-            demolition.draw(resetButton);
+            drawTile(demolition, "../../src/imagesAudio/resetButton.png", 173, 77, 1730.f, 14.f);
         }
+
+        effects.draw(demolition);
         demolition.display();
     }
 }

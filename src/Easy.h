@@ -3,6 +3,7 @@
 //
 #ifndef EASY_H
 #define EASY_H
+#include "Effects.h"
 void difficulty();
 inline void Easy()
 {
@@ -23,10 +24,8 @@ inline void Easy()
     int score=0;
     std::stringstream scoreStream;
     scoreStream << score;
-    //places 10 mines
     while (mines<10)
     {
-        //randomly selects a spot on the grid and places a mine if there is not one already
         rows=rand()%10;
         columns=rand()%10;
         if (!grid[rows][columns])
@@ -44,8 +43,15 @@ inline void Easy()
     Score.setString(scoreStream.str());
     easy.create(sf :: VideoMode({1920,1080}), "MINESWEEPER", sf :: State :: Fullscreen);
     easy.setFramerateLimit(60);
+
+    Effects effects;
+    sf::Clock clk;
+    auto baseCenter = easy.getView().getCenter();
+
     while (easy.isOpen())
     {
+        float dt = clk.restart().asSeconds();
+
         while (const std :: optional event = easy.pollEvent())
         {
             //ends program if the user closes the window
@@ -109,16 +115,27 @@ inline void Easy()
                                     Score.setString(scoreStream.str());
                                 }
                                 selected[rows][columns]=true;
+
+                                if (grid[rows][columns])
+                                {
+                                    float cx = 712.f + 50.f*rows + 25.f;
+                                    float cy = 289.f + 50.f*columns + 25.f;
+                                    effects.spawn<ExplosionSoundEffect>("../../src/imagesAudio/explosion.wav");
+                                    effects.spawn<RingWaveEffect>(sf::Vector2f{cx,cy}, 0.f, 1300.f, 0.3f, sf::Color(255,80,30));
+                                    effects.spawn<ScreenFlashEffect>(sf::Color(255,255,255,220), 0.25f);
+
+
+                                }
                             }
                         }
                     }
                 }
             }
         }
-        easy.clear(sf :: Color :: Black);
-        sf :: Texture texture("../../src/Minesweeper_easy.png", false, sf :: IntRect({0,0},{1920,1080}));
-        sf::Sprite sprite(texture);
-        easy.draw(sprite);
+
+        effects.update(dt);
+
+        loadScreen(easy, "../../src/imagesAudio/Minesweeper_easy.png");
         for (rows=0; rows<10; rows++)
         {
             for (columns=0; columns<10; columns++)
@@ -132,74 +149,47 @@ inline void Easy()
                     {
                         case 1:
                         {
-                            sf :: Texture Num1("../../src/minNum1Easy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite num1(Num1);
-                            num1.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(num1);
+                            drawTile(easy, "../../src/imagesAudio/minNum1Easy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                             break;
                         }
                         case 2:
                         {
-                            sf :: Texture Num2("../../src/minNum2Easy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite num2(Num2);
-                            num2.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(num2);
+                            drawTile(easy, "../../src/imagesAudio/minNum2Easy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                             break;
                         }
                         case 3:
                         {
-                            sf :: Texture Num3("../../src/minNum3Easy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite num3(Num3);
-                            num3.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(num3);
+                            drawTile(easy, "../../src/imagesAudio/minNum3Easy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                             break;
                         }
                         case 4:
                         {
-                            sf :: Texture Num4("../../src/minNum4Easy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite num4(Num4);
-                            num4.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(num4);
+                            drawTile(easy, "../../src/imagesAudio/minNum4Easy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                             break;
                         }
                         case 5:
                         {
-                            sf :: Texture Num5("../../src/minNum5Easy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite num5(Num5);
-                            num5.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(num5);
+                            drawTile(easy, "../../src/imagesAudio/minNum5Easy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                             break;
                         }
                         case 6:
                         {
-                            sf :: Texture Num6("../../src/minNum6Easy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite num6(Num6);
-                            num6.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(num6);
+                            drawTile(easy, "../../src/imagesAudio/minNum6Easy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                             break;
                         }
                         case 7:
                         {
-                            sf :: Texture Num7("../../src/minNum7Easy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite num7(Num7);
-                            num7.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(num7);
+                            drawTile(easy, "../../src/imagesAudio/minNum7Easy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                             break;
                         }
                         case 8:
                         {
-                            sf :: Texture Num8("../../src/minNum8Easy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite num8(Num8);
-                            num8.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(num8);
+                            drawTile(easy, "../../src/imagesAudio/minNum8Easy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                             break;
                         }
                         default:
                         {
-                            sf :: Texture Empty("../../src/emptySelectedSquareEasy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite empty(Empty);
-                            empty.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(empty);
+                            drawTile(easy, "../../src/imagesAudio/emptySelectedSquareEasy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                             //if an empty square is selected, the floodEasy function is called to select other safe squares near it
                             if (selected[rows][columns])
                             {
@@ -214,12 +204,7 @@ inline void Easy()
                 }
                 //if the square is a mine
                 if (grid[rows][columns] == true)
-                {
-                    sf :: Texture Mine("../../src/mineEasy.png", false, sf :: IntRect({0,0},{50,50}));
-                    sf::Sprite mine(Mine);
-                    mine.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                    easy.draw(mine);
-                }
+                    drawTile(easy, "../../src/imagesAudio/mineEasy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
             }
         }
         for (rows=0; rows<10; rows++)
@@ -228,12 +213,7 @@ inline void Easy()
             {
                 //if the square is not selected then redraw it over the generated board
                 if (selected[rows][columns] == false)
-                {
-                    sf :: Texture Square("../../src/emptySquareEasy.png", false, sf :: IntRect({0,0},{50,50}));
-                    sf::Sprite square(Square);
-                    square.setPosition({712.f+(50*rows), 289.f+(50*columns)});
-                    easy.draw(square);
-                }
+                    drawTile(easy, "../../src/imagesAudio/emptySquareEasy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
             }
         }
         for (rows=0; rows<10; rows++)
@@ -242,12 +222,7 @@ inline void Easy()
             {
                 //if the user has right-clicked on an unselected square then draw the flag
                 if (flagged[rows][columns] == true && selected[rows][columns] == false)
-                {
-                    sf :: Texture Flag("../../src/minFlagEasy.png", false, sf :: IntRect({0,0},{50,50}));
-                    sf::Sprite flag(Flag);
-                    flag.setPosition({712.f+(50*rows), 289.f+(50*columns)});
-                    easy.draw(flag);
-                }
+                    drawTile(easy, "../../src/imagesAudio/minFlagEasy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
             }
         }
         for (rows=0; rows<10; rows++)
@@ -291,12 +266,7 @@ inline void Easy()
                     for (columns=0; columns<10; columns++)
                     {
                         if (grid[rows][columns] == true)
-                        {
-                            sf :: Texture Mine("../../src/mineEasy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite mine(Mine);
-                            mine.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(mine);
-                        }
+                            drawTile(easy, "../../src/imagesAudio/mineEasy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                     }
                 }
                 break;
@@ -307,44 +277,24 @@ inline void Easy()
                     for (columns=0; columns<10; columns++)
                     {
                         if (grid[rows][columns] == true)
-                        {
-                            sf :: Texture MineWin("../../src/mineWinEasy.png", false, sf :: IntRect({0,0},{50,50}));
-                            sf::Sprite mineWin(MineWin);
-                            mineWin.setPosition({712.f+(50*rows),289.f+(50*columns)});
-                            easy.draw(mineWin);
-                        }
+                            drawTile(easy, "../../src/imagesAudio/mineWinEasy.png",50,50,712.f+(50*rows), 289.f+(50*columns));
                     }
                 }
         }
         easy.draw(Score);
         if (sf::Mouse::getPosition(easy).x >=17 && sf::Mouse::getPosition(easy).x <=189 && sf::Mouse::getPosition(easy).y >=14 && sf::Mouse::getPosition(easy).y <=89)
-        {
-            sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite highlightedBackButton(HighlightedBackButton);
-            highlightedBackButton.setPosition({17.f, 14.f});
-            easy.draw(highlightedBackButton);
-        }
+            drawTile(easy, "../../src/imagesAudio/backButtonHighlighted.png",173, 77, 17.f, 14.f);
+
         else
-        {
-            sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite backButton(BackButton);
-            backButton.setPosition({17.f, 14.f});
-            easy.draw(backButton);
-        }
+            drawTile(easy, "../../src/imagesAudio/backButton.png",173, 77, 17.f, 14.f);
+
         if (sf::Mouse::getPosition(easy).x >=1731 && sf::Mouse::getPosition(easy).x <=1901 && sf::Mouse::getPosition(easy).y >=14 && sf::Mouse::getPosition(easy).y <=89)
-        {
-            sf :: Texture HighlightedResetButton ("../../src/resetButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite highlightedResetButton(HighlightedResetButton);
-            highlightedResetButton.setPosition({1730.f, 14.f});
-            easy.draw(highlightedResetButton);
-        }
+            drawTile(easy, "../../src/imagesAudio/resetButtonHighlighted.png",173, 77, 1730.f, 14.f);
+
         else
-        {
-            sf :: Texture ResetButton ("../../src/resetButton.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite resetButton(ResetButton);
-            resetButton.setPosition({1730.f, 14.f});
-            easy.draw(resetButton);
-        }
+            drawTile(easy, "../../src/imagesAudio/resetButton.png",173, 77, 1730.f, 14.f);
+
+        effects.draw(easy);
         easy.display();
     }
 }
@@ -354,26 +304,26 @@ int countMinesEasy(bool grid[10][10], int rows, int columns)
     int checkHorizontal;
     int checkVertical;
     int count=0;
-        for (int horizontal=-1;horizontal<=1;horizontal++)
+    for (int horizontal=-1;horizontal<=1;horizontal++)
+    {
+        for (int vertical=-1;vertical<=1;vertical++)
         {
-            for (int vertical=-1;vertical<=1;vertical++)
+            if (horizontal==0 && vertical==0)
+                continue;
+            else
             {
-                if (horizontal==0 && vertical==0)
-                    continue;
-                else
-                {
-                    checkHorizontal=rows+horizontal;
-                    checkVertical=columns+vertical;
-                }
-                //makes sure the array stays in bounds
-                if ((checkHorizontal >=0 && checkHorizontal<10) && (checkVertical >=0 && checkVertical<10))
-                    {
-                        //increases the count whenever a mine is in one of the adjacent spaces
-                        if (grid[checkHorizontal][checkVertical])
-                            count++;
-                    }
+                checkHorizontal=rows+horizontal;
+                checkVertical=columns+vertical;
+            }
+            //makes sure the array stays in bounds
+            if ((checkHorizontal >=0 && checkHorizontal<10) && (checkVertical >=0 && checkVertical<10))
+            {
+                //increases the count whenever a mine is in one of the adjacent spaces
+                if (grid[checkHorizontal][checkVertical])
+                    count++;
             }
         }
+    }
     return count;
 }
 //function for flood filling and scoring safe squares
@@ -410,4 +360,4 @@ int floodEasy(bool grid[10][10], bool selected[10][10], bool scored[10][10], int
     }
     return score;
 }
-#endif //EASY.h
+#endif //EASY_H

@@ -1,0 +1,37 @@
+# ninja log v6
+3	135	7845075355564670	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-mkdir	2c3356b3839a3856
+3	268	7845101849464376	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-update	52ab9051b377caf5
+268	342	7845101852795056	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-patch	702e33efdc7fd281
+3	135	7845075355564670	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-mkdir	2c3356b3839a3856
+136	17992	7845075534181828	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-download	14a9b6ad6e255872
+136	17992	7845075534181828	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-download	14a9b6ad6e255872
+3	268	7845101849464376	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-update	52ab9051b377caf5
+268	342	7845101852795056	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-patch	702e33efdc7fd281
+631	704	7845101856417517	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-test	83223d0307dd77ae
+342	420	7845101853542099	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-configure	e5b1f12e8b6a4428
+342	420	7845101853542099	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-configure	e5b1f12e8b6a4428
+704	808	7845101857444912	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/CMakeFiles/freetype-populate-complete	87602c9f8098a8f1
+420	529	7845101854664860	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-build	208f32c9e8989f7
+420	529	7845101854664860	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-build	208f32c9e8989f7
+529	630	7845101855642701	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-install	88a6ad6182b8b15b
+529	630	7845101855642701	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-install	88a6ad6182b8b15b
+631	704	7845101856417517	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-test	83223d0307dd77ae
+704	808	7845101857444912	CMakeFiles/freetype-populate-complete	87602c9f8098a8f1
+704	808	7845101857444912	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-done	87602c9f8098a8f1
+704	808	7845101857444912	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-done	87602c9f8098a8f1
+2	144	7845300987008013	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-update	52ab9051b377caf5
+2	144	7845300987008013	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-update	52ab9051b377caf5
+144	204	7845300988974850	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-patch	702e33efdc7fd281
+144	204	7845300988974850	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-patch	702e33efdc7fd281
+204	262	7845300989556376	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-configure	e5b1f12e8b6a4428
+204	262	7845300989556376	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-configure	e5b1f12e8b6a4428
+263	323	7845300990155887	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-build	208f32c9e8989f7
+263	323	7845300990155887	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-build	208f32c9e8989f7
+323	380	7845300990729344	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-install	88a6ad6182b8b15b
+323	380	7845300990729344	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-install	88a6ad6182b8b15b
+380	436	7845300991284769	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-test	83223d0307dd77ae
+380	436	7845300991284769	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-test	83223d0307dd77ae
+436	514	7845300992079663	CMakeFiles/freetype-populate-complete	87602c9f8098a8f1
+436	514	7845300992079663	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-done	87602c9f8098a8f1
+436	514	7845300992079663	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/CMakeFiles/freetype-populate-complete	87602c9f8098a8f1
+436	514	7845300992079663	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-done	87602c9f8098a8f1

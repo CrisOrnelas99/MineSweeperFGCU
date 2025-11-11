@@ -1,0 +1,37 @@
+# ninja log v6
+718	846	7845082169150316	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/CMakeFiles/ogg-populate-complete	a3328cb7a64f6439
+3	112	7845075536195402	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-mkdir	d433526ecd33463
+113	2282	7845075557918509	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-download	3284db619ee5f8fe
+3	112	7845075536195402	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-mkdir	d433526ecd33463
+5	255	7845082160830044	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	9c07f350aab8e716
+256	354	7845082164239125	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	c6a07519cbf9ccd2
+445	537	7845082166065879	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	7b6ba3666f8d08da
+113	2282	7845075557918509	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-download	3284db619ee5f8fe
+5	255	7845082160830044	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	9c07f350aab8e716
+256	354	7845082164239125	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	c6a07519cbf9ccd2
+355	445	7845082165156981	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	7402433a01d36db4
+538	625	7845082166928602	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	88cf0811824a2a00
+355	445	7845082165156981	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	7402433a01d36db4
+445	537	7845082166065879	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	7b6ba3666f8d08da
+625	718	7845082167855823	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	64907cceb7557c29
+538	625	7845082166928602	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	88cf0811824a2a00
+625	718	7845082167855823	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	64907cceb7557c29
+718	846	7845082169150316	CMakeFiles/ogg-populate-complete	a3328cb7a64f6439
+718	846	7845082169150316	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	a3328cb7a64f6439
+718	846	7845082169150316	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	a3328cb7a64f6439
+2	167	7845101861184314	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	9c07f350aab8e716
+2	167	7845101861184314	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	9c07f350aab8e716
+167	270	7845101863806102	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	c6a07519cbf9ccd2
+167	270	7845101863806102	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	c6a07519cbf9ccd2
+270	372	7845101864783432	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	7402433a01d36db4
+270	372	7845101864783432	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	7402433a01d36db4
+373	496	7845101866005819	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	7b6ba3666f8d08da
+373	496	7845101866005819	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	7b6ba3666f8d08da
+497	623	7845101867234918	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	88cf0811824a2a00
+497	623	7845101867234918	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	88cf0811824a2a00
+623	789	7845101868911343	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	64907cceb7557c29
+623	789	7845101868911343	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	64907cceb7557c29
+790	989	7845101870940789	CMakeFiles/ogg-populate-complete	a3328cb7a64f6439
+790	989	7845101870940789	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	a3328cb7a64f6439
+790	989	7845101870940789	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/CMakeFiles/ogg-populate-complete	a3328cb7a64f6439
+790	989	7845101870940789	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	a3328cb7a64f6439

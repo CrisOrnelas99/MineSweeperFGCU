@@ -1,0 +1,37 @@
+# ninja log v6
+444	533	7845101894391636	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-install	218d36176f8891eb
+3	100	7845075779105631	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-mkdir	be8c4b173a428bd
+3	190	7845101889149365	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-update	8fddbbf302b4cd6b
+191	275	7845101891799174	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-patch	f4ed14ddda9ea4cd
+3	100	7845075779105631	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-mkdir	be8c4b173a428bd
+101	4061	7845075818699033	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-download	fc65431ba7d2928a
+275	337	7845101892427246	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-configure	cc6cd5f252899dd0
+3	190	7845101889149365	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-update	8fddbbf302b4cd6b
+101	4061	7845075818699033	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-download	fc65431ba7d2928a
+191	275	7845101891799174	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-patch	f4ed14ddda9ea4cd
+275	337	7845101892427246	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-configure	cc6cd5f252899dd0
+337	444	7845101893487977	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-build	c8dafa3832fcf87d
+337	444	7845101893487977	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-build	c8dafa3832fcf87d
+444	533	7845101894391636	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-install	218d36176f8891eb
+533	599	7845101895010181	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-test	9d788b4900e0e905
+533	599	7845101895010181	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-test	9d788b4900e0e905
+599	760	7845101896662786	CMakeFiles/vorbis-populate-complete	ad50b1bdacbc0dff
+599	760	7845101896662786	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-done	ad50b1bdacbc0dff
+599	760	7845101896662786	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/CMakeFiles/vorbis-populate-complete	ad50b1bdacbc0dff
+599	760	7845101896662786	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-done	ad50b1bdacbc0dff
+3	255	7845301018354391	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-update	8fddbbf302b4cd6b
+3	255	7845301018354391	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-update	8fddbbf302b4cd6b
+256	355	7845301021793765	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-patch	f4ed14ddda9ea4cd
+256	355	7845301021793765	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-patch	f4ed14ddda9ea4cd
+355	434	7845301022592166	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-configure	cc6cd5f252899dd0
+355	434	7845301022592166	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-configure	cc6cd5f252899dd0
+434	516	7845301023407654	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-build	c8dafa3832fcf87d
+434	516	7845301023407654	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-build	c8dafa3832fcf87d
+517	609	7845301024303545	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-install	218d36176f8891eb
+517	609	7845301024303545	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-install	218d36176f8891eb
+609	689	7845301025116286	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-test	9d788b4900e0e905
+609	689	7845301025116286	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-test	9d788b4900e0e905
+689	810	7845301026313477	CMakeFiles/vorbis-populate-complete	ad50b1bdacbc0dff
+689	810	7845301026313477	vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-done	ad50b1bdacbc0dff
+689	810	7845301026313477	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/CMakeFiles/vorbis-populate-complete	ad50b1bdacbc0dff
+689	810	7845301026313477	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/vorbis-populate-done	ad50b1bdacbc0dff

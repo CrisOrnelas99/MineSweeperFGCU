@@ -3,7 +3,11 @@
 //
 #ifndef HARD_H
 #define HARD_H
+#include "Effects.h"
+
 void difficulty();
+//display board screen with tiles
+
 inline void Hard()
 {
     int countMinesHard(bool grid[30][30], int rows, int columns);
@@ -18,7 +22,7 @@ inline void Hard()
     bool scored[30][30]={false};
     //flagged is used to determine whether a user has placed a flag on a square or not
     bool flagged[30][30]={false};
-    int gameOver;
+    int gameOver=0;
     int mines=0;
     int score=0;
     std::stringstream scoreStream;
@@ -44,8 +48,15 @@ inline void Hard()
     Score.setString(scoreStream.str());
     hard.create(sf :: VideoMode({1920,1080}), "MINESWEEPER", sf :: State :: Fullscreen);
     hard.setFramerateLimit(60);
+
+    Effects effects;
+    sf::Clock clk;
+    auto baseCenter = hard.getView().getCenter();
+
     while (hard.isOpen())
     {
+        float dt = clk.restart().asSeconds();
+
         while (const std :: optional event = hard.pollEvent())
         {
             //ends program if the user closes the window
@@ -109,16 +120,26 @@ inline void Hard()
                                     Score.setString(scoreStream.str());
                                 }
                                 selected[rows][columns]=true;
+
+                                if (grid[rows][columns])
+                                {
+                                    float cx = 511.f + 30.f*rows + 15.f;
+                                    float cy =  93.f + 30.f*columns + 15.f;
+                                    effects.spawn<ExplosionSoundEffect>("../../src/imagesAudio/explosion.wav");
+                                    effects.spawn<RingWaveEffect>(sf::Vector2f{cx,cy}, 0.f, 1300.f, 0.3f, sf::Color(255,80,30));
+                                    effects.spawn<ScreenFlashEffect>(sf::Color(255,255,255,220), 0.25f);
+
+                                }
                             }
                         }
                     }
                 }
             }
         }
-        hard.clear(sf :: Color :: Black);
-        sf :: Texture texture("../../src/Minesweeper_hard.png", false, sf :: IntRect({0,0},{1920,1080}));
-        sf::Sprite sprite(texture);
-        hard.draw(sprite);
+
+        effects.update(dt);
+
+        loadScreen(hard, "../../src/imagesAudio/Minesweeper_hard.png");
         for (rows=0; rows<30; rows++)
         {
             for (columns=0; columns<30; columns++)
@@ -132,74 +153,47 @@ inline void Hard()
                     {
                         case 1:
                         {
-                            sf :: Texture Num1("../../src/minNum1Hard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite num1(Num1);
-                            num1.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(num1);
+                            drawTile(hard, "../../src/imagesAudio/minNum1Hard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                             break;
                         }
                         case 2:
                         {
-                            sf :: Texture Num2("../../src/minNum2Hard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite num2(Num2);
-                            num2.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(num2);
+                            drawTile(hard, "../../src/imagesAudio/minNum2Hard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                             break;
                         }
                         case 3:
                         {
-                            sf :: Texture Num3("../../src/minNum3Hard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite num3(Num3);
-                            num3.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(num3);
+                            drawTile(hard, "../../src/imagesAudio/minNum3Hard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                             break;
                         }
                         case 4:
                         {
-                            sf :: Texture Num4("../../src/minNum4Hard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite num4(Num4);
-                            num4.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(num4);
+                            drawTile(hard, "../../src/imagesAudio/minNum4Hard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                             break;
                         }
                         case 5:
                         {
-                            sf :: Texture Num5("../../src/minNum5Hard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite num5(Num5);
-                            num5.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(num5);
+                            drawTile(hard, "../../src/imagesAudio/minNum5Hard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                             break;
                         }
                         case 6:
                         {
-                            sf :: Texture Num6("../../src/minNum6Hard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite num6(Num6);
-                            num6.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(num6);
+                            drawTile(hard, "../../src/imagesAudio/minNum6Hard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                             break;
                         }
                         case 7:
                         {
-                            sf :: Texture Num7("../../src/minNum7Hard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite num7(Num7);
-                            num7.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(num7);
+                            drawTile(hard, "../../src/imagesAudio/minNum7Hard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                             break;
                         }
                         case 8:
                         {
-                            sf :: Texture Num8("../../src/minNum8Hard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite num8(Num8);
-                            num8.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(num8);
+                            drawTile(hard, "../../src/imagesAudio/minNum8Hard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                             break;
                         }
                         default:
                         {
-                            sf :: Texture Empty("../../src/emptySelectedSquareHard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite empty(Empty);
-                            empty.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(empty);
+                            drawTile(hard, "../../src/imagesAudio/emptySelectedSquareHard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                             //if an empty square is selected, the floodHard function is called to select other safe squares near it
                             if (selected[rows][columns])
                             {
@@ -214,12 +208,7 @@ inline void Hard()
                 }
                 //if the square is a mine
                 if (grid[rows][columns] == true)
-                {
-                    sf :: Texture Mine("../../src/mineHard.png", false, sf :: IntRect({0,0},{30,30}));
-                    sf::Sprite mine(Mine);
-                    mine.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                    hard.draw(mine);
-                }
+                    drawTile(hard, "../../src/imagesAudio/mineHard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
             }
         }
         for (rows=0; rows<30; rows++)
@@ -228,12 +217,7 @@ inline void Hard()
             {
                 //if the square is not selected then redraw it over the generated board
                 if (selected[rows][columns] == false)
-                {
-                    sf :: Texture Square("../../src/emptySquareHard.png", false, sf :: IntRect({0,0},{30,30}));
-                    sf::Sprite square(Square);
-                    square.setPosition({511.f+(30*rows), 93.f+(30*columns)});
-                    hard.draw(square);
-                }
+                    drawTile(hard, "../../src/imagesAudio/emptySquareHard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
             }
         }
         for (rows=0; rows<30; rows++)
@@ -242,12 +226,7 @@ inline void Hard()
             {
                 //if the user has right-clicked on an unselected square then draw the flag
                 if (flagged[rows][columns] == true && selected[rows][columns] == false)
-                {
-                    sf :: Texture Flag("../../src/minFlagHard.png", false, sf :: IntRect({0,0},{30,30}));
-                    sf::Sprite flag(Flag);
-                    flag.setPosition({511.f+(30*rows), 93.f+(30*columns)});
-                    hard.draw(flag);
-                }
+                    drawTile(hard, "../../src/imagesAudio/minFlagHard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
             }
         }
         for (rows=0; rows<30; rows++)
@@ -291,12 +270,7 @@ inline void Hard()
                     for (columns=0; columns<30; columns++)
                     {
                         if (grid[rows][columns] == true)
-                        {
-                            sf :: Texture Mine("../../src/mineHard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite mine(Mine);
-                            mine.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(mine);
-                        }
+                            drawTile(hard, "../../src/imagesAudio/mineHard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                     }
                 }
                 break;
@@ -307,44 +281,24 @@ inline void Hard()
                     for (columns=0; columns<30; columns++)
                     {
                         if (grid[rows][columns] == true)
-                        {
-                            sf :: Texture MineWin("../../src/mineWinHard.png", false, sf :: IntRect({0,0},{30,30}));
-                            sf::Sprite mineWin(MineWin);
-                            mineWin.setPosition({511.f+(30*rows),93.f+(30*columns)});
-                            hard.draw(mineWin);
-                        }
+                            drawTile(hard, "../../src/imagesAudio/mineWinHard.png", 30, 30, 511.f+(30*rows), 93.f+(30*columns));
                     }
                 }
         }
         hard.draw(Score);
         if (sf::Mouse::getPosition(hard).x >=17 && sf::Mouse::getPosition(hard).x <=189 && sf::Mouse::getPosition(hard).y >=14 && sf::Mouse::getPosition(hard).y <=89)
-        {
-            sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite highlightedBackButton(HighlightedBackButton);
-            highlightedBackButton.setPosition({17.f, 14.f});
-            hard.draw(highlightedBackButton);
-        }
+            drawTile(hard, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
+
         else
-        {
-            sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite backButton(BackButton);
-            backButton.setPosition({17.f, 14.f});
-            hard.draw(backButton);
-        }
+            drawTile(hard, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
+
         if (sf::Mouse::getPosition(hard).x >=1731 && sf::Mouse::getPosition(hard).x <=1901 && sf::Mouse::getPosition(hard).y >=14 && sf::Mouse::getPosition(hard).y <=89)
-        {
-            sf :: Texture HighlightedResetButton ("../../src/resetButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite highlightedResetButton(HighlightedResetButton);
-            highlightedResetButton.setPosition({1730.f, 14.f});
-            hard.draw(highlightedResetButton);
-        }
+            drawTile(hard, "../../src/imagesAudio/resetButtonHighlighted.png", 173, 77, 1730.f, 14.f);
+
         else
-        {
-            sf :: Texture ResetButton ("../../src/resetButton.png", false, sf :: IntRect({0,0},{173,77}));
-            sf::Sprite resetButton(ResetButton);
-            resetButton.setPosition({1730.f, 14.f});
-            hard.draw(resetButton);
-        }
+            drawTile(hard, "../../src/imagesAudio/resetButton.png", 173, 77, 1730.f, 14.f);
+
+        effects.draw(hard);
         hard.display();
     }
 }

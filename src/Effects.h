@@ -91,11 +91,7 @@ private:
 // circle that expands from a center point
 class RingWaveEffect : public Effect {
 public:
-    RingWaveEffect(sf::Vector2f center,
-                   float startRadiusIn,
-                   float endRadiusIn,
-                   float lifetimeSecondsIn,
-                   sf::Color outlineColor)
+    RingWaveEffect(sf::Vector2f center, float startRadiusIn, float endRadiusIn, float lifetimeSecondsIn, sf::Color outlineColor)
         : startRadius(startRadiusIn), // starting size
           endRadius(endRadiusIn),  // final size
           framesLived(0) // frames used so far

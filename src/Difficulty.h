@@ -6,15 +6,19 @@
 #include "Easy.h"
 #include "Medium.h"
 #include "Hard.h"
+#include "Effects.h"
+
 void title();
+
 inline void difficulty()
 {
     sf :: RenderWindow difficulty;
     difficulty.create(sf :: VideoMode({1920,1080}), "MINESWEEPER", sf :: State :: Fullscreen);
     difficulty.setFramerateLimit(60);
+    //initialize screen object
+    bool mouseHoverEasy,mouseHoverMedium,mouseHoverHard;
     while (difficulty.isOpen())
     {
-        bool mouseHoverEasy,mouseHoverMedium,mouseHoverHard;
         //checks for events that occur while the window is open
         while (const std :: optional event = difficulty.pollEvent())
         {
@@ -64,92 +68,56 @@ inline void difficulty()
                 sf::Vector2i localPosition = sf::Mouse::getPosition(difficulty);
                 if ((localPosition.x >=746 && localPosition.x <=1170) && (localPosition.y >= 189 && localPosition.y <=319))
                 {
-                    difficulty.clear(sf :: Color :: Black);
-                    sf :: Texture texture("../../src/Minesweeper_difficulty_select_easy.png", false, sf :: IntRect({0,0},{1920,1080}));
-                    sf::Sprite sprite(texture);
-                    difficulty.draw(sprite);
+                    loadScreen(difficulty, "../../src/imagesAudio/Minesweeper_difficulty_select_easy.png");
                     if (sf::Mouse::getPosition(difficulty).x >=17 && sf::Mouse::getPosition(difficulty).x <=189 && sf::Mouse::getPosition(difficulty).y >=14 && sf::Mouse::getPosition(difficulty).y <=89)
                     {
-                        sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-                        sf::Sprite highlightedBackButton(HighlightedBackButton);
-                        highlightedBackButton.setPosition({17.f, 14.f});
-                        difficulty.draw(highlightedBackButton);
+                        drawTile(difficulty, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
                     }
                     else
                     {
-                        sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-                        sf::Sprite backButton(BackButton);
-                        backButton.setPosition({17.f, 14.f});
-                        difficulty.draw(backButton);
+                        drawTile(difficulty, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
                     }
                     difficulty.display();
                     mouseHoverEasy=true;
                 }
                 else if ((localPosition.x >= 747 && localPosition.x <= 1174) && (localPosition.y >= 481 && localPosition.y <= 605))
                 {
-                    difficulty.clear(sf :: Color :: Black);
-                    sf :: Texture texture("../../src/Minesweeper_difficulty_select_medium.png", false, sf :: IntRect({0,0},{1920,1080}));
-                    sf::Sprite sprite(texture);
-                    difficulty.draw(sprite);
+                    loadScreen(difficulty, "../../src/imagesAudio/Minesweeper_difficulty_select_medium.png");
                     if (sf::Mouse::getPosition(difficulty).x >=17 && sf::Mouse::getPosition(difficulty).x <=189 && sf::Mouse::getPosition(difficulty).y >=14 && sf::Mouse::getPosition(difficulty).y <=89)
                     {
-                        sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-                        sf::Sprite highlightedBackButton(HighlightedBackButton);
-                        highlightedBackButton.setPosition({17.f, 14.f});
-                        difficulty.draw(highlightedBackButton);
+                        drawTile(difficulty, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
                     }
                     else
                     {
-                        sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-                        sf::Sprite backButton(BackButton);
-                        backButton.setPosition({17.f, 14.f});
-                        difficulty.draw(backButton);
+                        drawTile(difficulty, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
                     }
                     difficulty.display();
                     mouseHoverMedium=true;
                 }
                 else if ((localPosition.x >= 750 && localPosition.x <= 1169) && (localPosition.y >= 743 && localPosition.y <= 873))
                 {
-                    difficulty.clear(sf :: Color :: Black);
-                    sf :: Texture texture("../../src/Minesweeper_difficulty_select_hard.png", false, sf :: IntRect({0,0},{1920,1080}));
-                    sf::Sprite sprite(texture);
-                    difficulty.draw(sprite);
+                    loadScreen(difficulty, "../../src/imagesAudio/Minesweeper_difficulty_select_hard.png");
                     if (sf::Mouse::getPosition(difficulty).x >=17 && sf::Mouse::getPosition(difficulty).x <=189 && sf::Mouse::getPosition(difficulty).y >=14 && sf::Mouse::getPosition(difficulty).y <=89)
                     {
-                        sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-                        sf::Sprite highlightedBackButton(HighlightedBackButton);
-                        highlightedBackButton.setPosition({17.f, 14.f});
-                        difficulty.draw(highlightedBackButton);
+                        drawTile(difficulty, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
                     }
                     else
                     {
-                        sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-                        sf::Sprite backButton(BackButton);
-                        backButton.setPosition({17.f, 14.f});
-                        difficulty.draw(backButton);
+                        drawTile(difficulty, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
                     }
                     difficulty.display();
                     mouseHoverHard=true;
                 }
                 else
                 {
-                    difficulty.clear(sf :: Color :: Black);
-                    sf :: Texture texture("../../src/Minesweeper_difficulty_select.png", false, sf :: IntRect({0,0},{1920,1080}));
-                    sf::Sprite sprite(texture);
-                    difficulty.draw(sprite);
+                    loadScreen(difficulty, "../../src/imagesAudio/Minesweeper_difficulty_select.png");
                     if (sf::Mouse::getPosition(difficulty).x >=17 && sf::Mouse::getPosition(difficulty).x <=189 && sf::Mouse::getPosition(difficulty).y >=14 && sf::Mouse::getPosition(difficulty).y <=89)
                     {
-                        sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-                        sf::Sprite highlightedBackButton(HighlightedBackButton);
-                        highlightedBackButton.setPosition({17.f, 14.f});
-                        difficulty.draw(highlightedBackButton);
+                        drawTile(difficulty, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
                     }
                     else
                     {
-                        sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-                        sf::Sprite backButton(BackButton);
-                        backButton.setPosition({17.f, 14.f});
-                        difficulty.draw(backButton);
+                        drawTile(difficulty, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
                     }
                     difficulty.display();
                     mouseHoverEasy=false,mouseHoverMedium=false,mouseHoverHard=false;
@@ -159,91 +127,61 @@ inline void difficulty()
         //series of if statements to keep buttons highlighted again
         if (mouseHoverEasy==true && mouseHoverMedium==false && mouseHoverHard==false)
         {
-            difficulty.clear(sf :: Color :: Black);
-            sf :: Texture texture("../../src/Minesweeper_difficulty_select_easy.png", false, sf :: IntRect({0,0},{1920,1080}));
-            sf::Sprite sprite(texture);
-            difficulty.draw(sprite);
+            loadScreen(difficulty, "../../src/imagesAudio/Minesweeper_difficulty_select_easy.png");
             if (sf::Mouse::getPosition(difficulty).x >=17 && sf::Mouse::getPosition(difficulty).x <=189 && sf::Mouse::getPosition(difficulty).y >=14 && sf::Mouse::getPosition(difficulty).y <=89)
             {
-                sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-                sf::Sprite highlightedBackButton(HighlightedBackButton);
-                highlightedBackButton.setPosition({17.f, 14.f});
-                difficulty.draw(highlightedBackButton);
+                drawTile(difficulty, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
             }
             else
             {
-                sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-                sf::Sprite backButton(BackButton);
-                backButton.setPosition({17.f, 14.f});
-                difficulty.draw(backButton);
+                drawTile(difficulty, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
             }
             difficulty.display();
         }
+
+
         else if (mouseHoverMedium==true && mouseHoverHard==false && mouseHoverEasy==false)
         {
-            difficulty.clear(sf :: Color :: Black);
-            sf :: Texture texture("../../src/Minesweeper_difficulty_select_medium.png", false, sf :: IntRect({0,0},{1920,1080}));
-            sf::Sprite sprite(texture);
-            difficulty.draw(sprite);
+            loadScreen(difficulty, "../../src/imagesAudio/Minesweeper_difficulty_select_medium.png");
             if (sf::Mouse::getPosition(difficulty).x >=17 && sf::Mouse::getPosition(difficulty).x <=189 && sf::Mouse::getPosition(difficulty).y >=14 && sf::Mouse::getPosition(difficulty).y <=89)
             {
-                sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-                sf::Sprite highlightedBackButton(HighlightedBackButton);
-                highlightedBackButton.setPosition({17.f, 14.f});
-                difficulty.draw(highlightedBackButton);
+                drawTile(difficulty, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
             }
             else
             {
-                sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-                sf::Sprite backButton(BackButton);
-                backButton.setPosition({17.f, 14.f});
-                difficulty.draw(backButton);
+                drawTile(difficulty, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
             }
             difficulty.display();
         }
+
         else if (mouseHoverHard==true && mouseHoverEasy==false && mouseHoverMedium==false)
         {
-            difficulty.clear(sf :: Color :: Black);
-            sf :: Texture texture("../../src/Minesweeper_difficulty_select_hard.png", false, sf :: IntRect({0,0},{1920,1080}));
-            sf::Sprite sprite(texture);
-            difficulty.draw(sprite);
+            loadScreen(difficulty, "../../src/imagesAudio/Minesweeper_difficulty_select_hard.png");
             if (sf::Mouse::getPosition(difficulty).x >=17 && sf::Mouse::getPosition(difficulty).x <=189 && sf::Mouse::getPosition(difficulty).y >=14 && sf::Mouse::getPosition(difficulty).y <=89)
             {
-                sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-                sf::Sprite highlightedBackButton(HighlightedBackButton);
-                highlightedBackButton.setPosition({17.f, 14.f});
-                difficulty.draw(highlightedBackButton);
+                drawTile(difficulty, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
             }
             else
             {
-                sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-                sf::Sprite backButton(BackButton);
-                backButton.setPosition({17.f, 14.f});
-                difficulty.draw(backButton);
+                drawTile(difficulty, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
             }
             difficulty.display();
         }
-        else if (mouseHoverEasy==false && mouseHoverMedium==false && mouseHoverHard==false)
+
+        else
         {
-            difficulty.clear(sf :: Color :: Black);
-            sf :: Texture texture("../../src/Minesweeper_difficulty_select.png", false, sf :: IntRect({0,0},{1920,1080}));sf::Sprite sprite(texture);
-            difficulty.draw(sprite);
+            loadScreen(difficulty, "../../src/imagesAudio/Minesweeper_difficulty_select.png");
             if (sf::Mouse::getPosition(difficulty).x >=17 && sf::Mouse::getPosition(difficulty).x <=189 && sf::Mouse::getPosition(difficulty).y >=14 && sf::Mouse::getPosition(difficulty).y <=89)
             {
-                sf :: Texture HighlightedBackButton("../../src/backButtonHighlighted.png", false, sf :: IntRect({0,0},{173,77}));
-                sf::Sprite highlightedBackButton(HighlightedBackButton);
-                highlightedBackButton.setPosition({17.f, 14.f});
-                difficulty.draw(highlightedBackButton);
+                drawTile(difficulty, "../../src/imagesAudio/backButtonHighlighted.png", 173, 77, 17.f, 14.f);
             }
             else
             {
-                sf :: Texture BackButton("../../src/backButton.png", false, sf :: IntRect({0,0},{173,77}));
-                sf::Sprite backButton(BackButton);
-                backButton.setPosition({17.f, 14.f});
-                difficulty.draw(backButton);
+                drawTile(difficulty, "../../src/imagesAudio/backButton.png", 173, 77, 17.f, 14.f);
             }
             difficulty.display();
         }
     }
 }
+
 #endif //DIFFICULTY_H

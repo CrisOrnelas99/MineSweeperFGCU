@@ -1,0 +1,37 @@
+# ninja log v6
+3	102	7845075638529385	flac-populate-prefix/src/flac-populate-stamp/flac-populate-mkdir	baaaedc2759e5423
+3	102	7845075638529385	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-mkdir	baaaedc2759e5423
+103	3443	7845075671950363	flac-populate-prefix/src/flac-populate-stamp/flac-populate-download	23d576fd8e5c8340
+103	3443	7845075671950363	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-download	23d576fd8e5c8340
+5	254	7845082173596145	flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	a411ac81632f83ce
+5	254	7845082173596145	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	a411ac81632f83ce
+254	348	7845082176969312	flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	ee6b5d39c04ce564
+254	348	7845082176969312	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	ee6b5d39c04ce564
+349	442	7845082177861169	flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	c638f8df8d37c62
+349	442	7845082177861169	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	c638f8df8d37c62
+442	536	7845082178827622	flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	7e618d581732c5a3
+442	536	7845082178827622	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	7e618d581732c5a3
+536	634	7845082179799873	flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	a9712523b8d011aa
+536	634	7845082179799873	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	a9712523b8d011aa
+634	762	7845082181057383	flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	3b522c96e429f76e
+634	762	7845082181057383	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	3b522c96e429f76e
+762	913	7845082182555392	CMakeFiles/flac-populate-complete	3026bb8774d179b
+762	913	7845082182555392	flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	3026bb8774d179b
+762	913	7845082182555392	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	3026bb8774d179b
+762	913	7845082182555392	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/CMakeFiles/flac-populate-complete	3026bb8774d179b
+3	171	7845101876096372	flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	a411ac81632f83ce
+3	171	7845101876096372	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	a411ac81632f83ce
+171	301	7845101879023190	flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	ee6b5d39c04ce564
+171	301	7845101879023190	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	ee6b5d39c04ce564
+301	380	7845101879805601	flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	c638f8df8d37c62
+301	380	7845101879805601	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	c638f8df8d37c62
+381	493	7845101880947589	flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	7e618d581732c5a3
+381	493	7845101880947589	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	7e618d581732c5a3
+494	582	7845101881833441	flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	a9712523b8d011aa
+494	582	7845101881833441	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	a9712523b8d011aa
+583	658	7845101882586053	flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	3b522c96e429f76e
+583	658	7845101882586053	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	3b522c96e429f76e
+659	782	7845101883810904	CMakeFiles/flac-populate-complete	3026bb8774d179b
+659	782	7845101883810904	flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	3026bb8774d179b
+659	782	7845101883810904	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/CMakeFiles/flac-populate-complete	3026bb8774d179b
+659	782	7845101883810904	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	3026bb8774d179b

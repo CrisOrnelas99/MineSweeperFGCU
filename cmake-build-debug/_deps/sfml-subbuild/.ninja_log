@@ -1,0 +1,37 @@
+# ninja log v6
+4	139	7845074894143822	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	c715fc7a5c24e924
+4	139	7845074894143822	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	c715fc7a5c24e924
+140	39118	7845075283944487	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	b1daa4ae5632843
+140	39118	7845075283944487	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	b1daa4ae5632843
+4	1544	7845101822164695	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	a47acd271550db60
+1687	1789	7845101839943299	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	699ab48c03f17e18
+4	1544	7845101822164695	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	a47acd271550db60
+1545	1607	7845101838123987	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	857d5161cd6e4d70
+1545	1607	7845101838123987	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	857d5161cd6e4d70
+1687	1789	7845101839943299	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	699ab48c03f17e18
+1607	1687	7845101838934802	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	4054c93d45de6f96
+1607	1687	7845101838934802	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	4054c93d45de6f96
+1789	1868	7845101840718265	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	3d0b8d82723ae659
+1962	2083	7845101842883226	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	c1dae150b34a0725
+1789	1868	7845101840718265	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	3d0b8d82723ae659
+1868	1961	7845101841667017	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	3ad3fbb1af35587e
+1868	1961	7845101841667017	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	3ad3fbb1af35587e
+1962	2083	7845101842883226	CMakeFiles/sfml-populate-complete	c1dae150b34a0725
+1962	2083	7845101842883226	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	c1dae150b34a0725
+1962	2083	7845101842883226	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	c1dae150b34a0725
+2	2176	7845300957716196	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	a47acd271550db60
+2	2176	7845300957716196	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	a47acd271550db60
+2176	2241	7845300980038006	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	857d5161cd6e4d70
+2176	2241	7845300980038006	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	857d5161cd6e4d70
+2242	2303	7845300980677338	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	4054c93d45de6f96
+2242	2303	7845300980677338	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	4054c93d45de6f96
+2304	2361	7845300981251920	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	699ab48c03f17e18
+2304	2361	7845300981251920	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	699ab48c03f17e18
+2362	2420	7845300981833567	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	3d0b8d82723ae659
+2362	2420	7845300981833567	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	3d0b8d82723ae659
+2421	2479	7845300982425937	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	3ad3fbb1af35587e
+2421	2479	7845300982425937	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	3ad3fbb1af35587e
+2479	2562	7845300983260463	CMakeFiles/sfml-populate-complete	c1dae150b34a0725
+2479	2562	7845300983260463	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	c1dae150b34a0725
+2479	2562	7845300983260463	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	c1dae150b34a0725
+2479	2562	7845300983260463	C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	c1dae150b34a0725
