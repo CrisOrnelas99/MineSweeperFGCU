@@ -40,8 +40,7 @@ int countMines(const bool (&grid)[H][W], int rows, int columns)
                 checkVertical = columns + vertical;
             }
             // makes sure the array stays in bounds
-            if ((checkHorizontal >= 0 && checkHorizontal < static_cast<int>(H)) &&
-                (checkVertical   >= 0 && checkVertical   < static_cast<int>(W)))
+            if ((checkHorizontal >= 0 && checkHorizontal < static_cast<int>(H)) &&  (checkVertical   >= 0 && checkVertical   < static_cast<int>(W)))
             {
                 // increases the count whenever a mine is in one of the adjacent spaces
                 if (grid[checkHorizontal][checkVertical])
@@ -109,8 +108,7 @@ void floodDemolition(const bool (&grid)[H][W], bool (&selected)[H][W], int rows,
                 checkVertical = columns + vertical;
             }
             // makes sure the array stays in bounds
-            if ((checkHorizontal >= 0 && checkHorizontal < static_cast<int>(H)) &&
-                (checkVertical   >= 0 && checkVertical   < static_cast<int>(W)))
+            if ((checkHorizontal >= 0 && checkHorizontal < static_cast<int>(H)) && (checkVertical   >= 0 && checkVertical   < static_cast<int>(W)))
             {
                 // if the square is not a mine then select it
                 if (!grid[checkHorizontal][checkVertical])
@@ -126,7 +124,7 @@ void floodDemolition(const bool (&grid)[H][W], bool (&selected)[H][W], int rows,
 class Effect {
 public:
     virtual ~Effect() = default; // allow deleting through base pointer
-    virtual bool update(float /*frameTimeSec*/) = 0; // advance one frame; return true when finished
+    virtual bool update(float) = 0; // advance one frame; return true when finished
     virtual void draw(sf::RenderWindow& window) const = 0; // render the effect
 };
 
@@ -137,7 +135,7 @@ public:
         clearAll();
     }
 
-    // construct and register via template (keeps your mode calls the same)
+    // construct and register via template
     template <class T, class... Args>
     T& spawn(Args... args)
     { // create an effect with given arguments
@@ -213,7 +211,7 @@ public:
         ringShape.setPosition(center); // fixed center position
     }
 
-    bool update(float /*frameTimeSec*/) override
+    bool update(float) override
     {
         // progress in [0..1] based on frames
         float progress = (totalFrames > 0) ? (float)framesLived / (float)totalFrames : 1.f;
