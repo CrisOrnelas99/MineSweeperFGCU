@@ -8,8 +8,6 @@ void title();
 
 inline void Demolition()
 {
-    int countMinesDemolition(bool grid[20][20], int rows, int columns);
-    void floodDemolition(bool grid[20][20], bool selected[20][20], int rows, int columns);
     int rows;
     int columns;
     //grid is used to determine whether a square has a mine or not
@@ -145,7 +143,7 @@ inline void Demolition()
                 //if the square is not a mine
                 if (grid[rows][columns] == false)
                 {
-                    int mineCount=countMinesDemolition(grid,rows,columns);
+                    int mineCount=countMines(grid,rows,columns);
                     //switch case for displaying number squares
                     switch (mineCount)
                     {
@@ -313,64 +311,6 @@ inline void Demolition()
 
         effects.draw(demolition);
         demolition.display();
-    }
-}
-//function for counting the number of mines touching a safe square
-int countMinesDemolition(bool grid[20][20], int rows, int columns)
-{
-    int checkHorizontal;
-    int checkVertical;
-    int count=0;
-    for (int horizontal=-1;horizontal<=1;horizontal++)
-    {
-        for (int vertical=-1;vertical<=1;vertical++)
-        {
-            if (horizontal==0 && vertical==0)
-                continue;
-            else
-            {
-                checkHorizontal=rows+horizontal;
-                checkVertical=columns+vertical;
-            }
-            //makes sure the array stays in bounds
-            if ((checkHorizontal >=0 && checkHorizontal<20) && (checkVertical >=0 && checkVertical<20))
-            {
-                //increases the count whenever a mine is in one of the adjacent spaces
-                if (grid[checkHorizontal][checkVertical])
-                    count++;
-            }
-        }
-    }
-    return count;
-}
-//function for flood filling safe spaces and giving info when clicking on mines
-void floodDemolition(bool grid[20][20], bool selected[20][20], int rows, int columns)
-{
-    int checkHorizontal;
-    int checkVertical;
-    for (int horizontal=-1;horizontal<=1;horizontal++)
-    {
-        for (int vertical=-1;vertical<=1;vertical++)
-        {
-            if (horizontal==0 && vertical==0)
-            {
-                continue;
-            }
-            else
-            {
-                checkHorizontal=rows+horizontal;
-                checkVertical=columns+vertical;
-            }
-            //makes sure the array stays in bounds
-            if ((checkHorizontal >=0 && checkHorizontal<20) && (checkVertical >=0 && checkVertical<20))
-            {
-                //if the square is not a mine then select it
-                if (!grid[checkHorizontal][checkVertical])
-                {
-                    selected[checkHorizontal][checkVertical]=true;
-                }
-            }
-        }
     }
 }
 #endif //DEMOLITION_H

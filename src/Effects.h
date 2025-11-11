@@ -21,6 +21,107 @@ static void drawTile(sf::RenderWindow &screen, std::string path, int w, int h, f
     screen.draw(sprite);
 }
 
+// Count mines
+template <std::size_t H, std::size_t W>
+int countMines(const bool (&grid)[H][W], int rows, int columns)
+{
+    int checkHorizontal;
+    int checkVertical;
+    int count = 0;
+    for (int horizontal = -1; horizontal <= 1; horizontal++)
+    {
+        for (int vertical = -1; vertical <= 1; vertical++)
+        {
+            if (horizontal == 0 && vertical == 0)
+                continue;
+            else
+            {
+                checkHorizontal = rows + horizontal;
+                checkVertical = columns + vertical;
+            }
+            // makes sure the array stays in bounds
+            if ((checkHorizontal >= 0 && checkHorizontal < static_cast<int>(H)) &&
+                (checkVertical   >= 0 && checkVertical   < static_cast<int>(W)))
+            {
+                // increases the count whenever a mine is in one of the adjacent spaces
+                if (grid[checkHorizontal][checkVertical])
+                    count++;
+            }
+        }
+    }
+    return count;
+}
+
+// flood and scoring
+template <std::size_t H, std::size_t W>
+int floodScore(const bool (&grid)[H][W], bool (&selected)[H][W], bool (&scored)[H][W], int rows, int columns)
+{
+    int score = 0;
+    int checkHorizontal;
+    int checkVertical;
+    for (int horizontal = -1; horizontal <= 1; horizontal++)
+    {
+        for (int vertical = -1; vertical <= 1; vertical++)
+        {
+            if (horizontal == 0 && vertical == 0)
+            {
+                continue;
+            }
+            else
+            {
+                checkHorizontal = rows + horizontal;
+                checkVertical = columns + vertical;
+            }
+            // makes sure the array stays in bounds
+            if ((checkHorizontal >= 0 && checkHorizontal < static_cast<int>(H)) &&
+                (checkVertical   >= 0 && checkVertical   < static_cast<int>(W)))
+            {
+                // if the square is not a mine and has not already been scored, then that square is selected and then scored
+                if (!grid[checkHorizontal][checkVertical] && !scored[checkHorizontal][checkVertical])
+                {
+                    selected[checkHorizontal][checkVertical] = true;
+                    scored[checkHorizontal][checkVertical] = true;
+                    score += 100;
+                }
+            }
+        }
+    }
+    return score;
+}
+
+// flood for demolition
+template <std::size_t H, std::size_t W>
+void floodDemolition(const bool (&grid)[H][W], bool (&selected)[H][W], int rows, int columns)
+{
+    int checkHorizontal;
+    int checkVertical;
+    for (int horizontal = -1; horizontal <= 1; horizontal++)
+    {
+        for (int vertical = -1; vertical <= 1; vertical++)
+        {
+            if (horizontal == 0 && vertical == 0)
+            {
+                continue;
+            }
+            else
+            {
+                checkHorizontal = rows + horizontal;
+                checkVertical = columns + vertical;
+            }
+            // makes sure the array stays in bounds
+            if ((checkHorizontal >= 0 && checkHorizontal < static_cast<int>(H)) &&
+                (checkVertical   >= 0 && checkVertical   < static_cast<int>(W)))
+            {
+                // if the square is not a mine then select it
+                if (!grid[checkHorizontal][checkVertical])
+                {
+                    selected[checkHorizontal][checkVertical] = true;
+                }
+            }
+        }
+    }
+}
+
 // abstract class for visual effect
 class Effect {
 public:

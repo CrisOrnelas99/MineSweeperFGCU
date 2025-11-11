@@ -7,8 +7,6 @@
 void difficulty();
 inline void Easy()
 {
-    int countMinesEasy(bool grid[10][10], int rows, int columns);
-    int floodEasy(bool grid[10][10], bool selected[10][10], bool scored[10][10], int rows, int columns);
     int rows;
     int columns;
     //grid is used to determine whether a square has a mine or not
@@ -143,7 +141,7 @@ inline void Easy()
                 //if the square is not a mine
                 if (grid[rows][columns]==false)
                 {
-                    int mineCount=countMinesEasy(grid,rows,columns);
+                    int mineCount=countMines(grid,rows,columns);
                     //switch case for displaying number squares
                     switch (mineCount)
                     {
@@ -193,7 +191,7 @@ inline void Easy()
                             //if an empty square is selected, the floodEasy function is called to select other safe squares near it
                             if (selected[rows][columns])
                             {
-                                score+=floodEasy(grid, selected, scored, rows, columns);
+                                score+=floodScore(grid, selected, scored, rows, columns);
                                 scoreStream.str(std::string());
                                 scoreStream << score;
                                 Score.setString(scoreStream.str());
@@ -298,66 +296,5 @@ inline void Easy()
         easy.display();
     }
 }
-//function for counting the number of mines touching a safe square
-int countMinesEasy(bool grid[10][10], int rows, int columns)
-{
-    int checkHorizontal;
-    int checkVertical;
-    int count=0;
-    for (int horizontal=-1;horizontal<=1;horizontal++)
-    {
-        for (int vertical=-1;vertical<=1;vertical++)
-        {
-            if (horizontal==0 && vertical==0)
-                continue;
-            else
-            {
-                checkHorizontal=rows+horizontal;
-                checkVertical=columns+vertical;
-            }
-            //makes sure the array stays in bounds
-            if ((checkHorizontal >=0 && checkHorizontal<10) && (checkVertical >=0 && checkVertical<10))
-            {
-                //increases the count whenever a mine is in one of the adjacent spaces
-                if (grid[checkHorizontal][checkVertical])
-                    count++;
-            }
-        }
-    }
-    return count;
-}
-//function for flood filling and scoring safe squares
-int floodEasy(bool grid[10][10], bool selected[10][10], bool scored[10][10], int rows, int columns)
-{
-    int score=0;
-    int checkHorizontal;
-    int checkVertical;
-    for (int horizontal=-1;horizontal<=1;horizontal++)
-    {
-        for (int vertical=-1;vertical<=1;vertical++)
-        {
-            if (horizontal==0 && vertical==0)
-            {
-                continue;
-            }
-            else
-            {
-                checkHorizontal=rows+horizontal;
-                checkVertical=columns+vertical;
-            }
-            //makes sure the array stays in bounds
-            if ((checkHorizontal >=0 && checkHorizontal<10) && (checkVertical >=0 && checkVertical<10))
-            {
-                //if the square is not a mine and has not already been scored, then that square is selected and then scored
-                if (!grid[checkHorizontal][checkVertical] && !scored[checkHorizontal][checkVertical])
-                {
-                    selected[checkHorizontal][checkVertical]=true;
-                    scored[checkHorizontal][checkVertical]=true;
-                    score+=100;
-                }
-            }
-        }
-    }
-    return score;
-}
+
 #endif //EASY_H

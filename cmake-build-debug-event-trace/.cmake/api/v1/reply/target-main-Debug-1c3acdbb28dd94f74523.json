@@ -19,10 +19,10 @@
 		"files" : 
 		[
 			"CMakeLists.txt",
-			"cmake-build-debug/_deps/sfml-src/src/SFML/Window/CMakeLists.txt",
-			"cmake-build-debug/_deps/sfml-src/src/SFML/Graphics/CMakeLists.txt",
-			"cmake-build-debug/_deps/sfml-src/src/SFML/Audio/CMakeLists.txt",
-			"cmake-build-debug/_deps/vorbis-src/lib/CMakeLists.txt"
+			"cmake-build-debug-event-trace/_deps/sfml-src/src/SFML/Window/CMakeLists.txt",
+			"cmake-build-debug-event-trace/_deps/sfml-src/src/SFML/Graphics/CMakeLists.txt",
+			"cmake-build-debug-event-trace/_deps/sfml-src/src/SFML/Audio/CMakeLists.txt",
+			"cmake-build-debug-event-trace/_deps/vorbis-src/lib/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -106,7 +106,7 @@
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug/_deps/sfml-src/include"
+					"path" : "C:/Users/damia/OneDrive/Desktop/New folder/Minesweeper/cmake-build-debug-event-trace/_deps/sfml-src/include"
 				}
 			],
 			"language" : "CXX",
@@ -128,11 +128,11 @@
 		},
 		{
 			"backtrace" : 2,
-			"id" : "sfml-graphics::@98af38147d5fa7e70f61"
+			"id" : "freetype::@d06f9f5ffc3cc0b4bd77"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "freetype::@d06f9f5ffc3cc0b4bd77"
+			"id" : "sfml-graphics::@98af38147d5fa7e70f61"
 		},
 		{
 			"backtrace" : 2,
@@ -152,11 +152,11 @@
 		},
 		{
 			"backtrace" : 2,
-			"id" : "vorbis::@692b0ee2b61df6760d20"
+			"id" : "vorbisfile::@692b0ee2b61df6760d20"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "vorbisfile::@692b0ee2b61df6760d20"
+			"id" : "vorbis::@692b0ee2b61df6760d20"
 		}
 	],
 	"id" : "main::@6890427a1f51a3e7e1df",
