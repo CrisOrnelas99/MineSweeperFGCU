@@ -9,13 +9,13 @@ inline void Easy()
 {
     int rows;
     int columns;
-    //grid is used to determine whether a square has a mine or not
+    //determine whether a square has a mine or not
     bool grid[10][10]={false};
-    //selected is used to determine whether a user has selected a square or not
+    //determine whether a user has selected a square or not
     bool selected[10][10]={false};
-    //scored is used to determine whether a selected square triggered by floodEasy has already been scored or not
+    //determine whether a selected square triggered by floodEasy has already been scored or not
     bool scored[10][10]={false};
-    //flagged is used to determine whether a user has placed a flag on a square or not
+    //determine whether a user has placed a flag on a square or not
     bool flagged[10][10]={false};
     int gameOver=0;
     int mines=0;
@@ -41,14 +41,13 @@ inline void Easy()
     Score.setString(scoreStream.str());
     easy.create(sf :: VideoMode({1920,1080}), "MINESWEEPER", sf :: State :: Fullscreen);
     easy.setFramerateLimit(60);
-
+    //create effect manager
     Effects effects;
-    sf::Clock clk;
-    auto baseCenter = easy.getView().getCenter();
+    sf::Clock clk;  //SFML stopwatch
 
     while (easy.isOpen())
     {
-        float dt = clk.restart().asSeconds();
+        float secsSinceLastFrame = clk.restart().asSeconds();
 
         while (const std :: optional event = easy.pollEvent())
         {
@@ -65,7 +64,7 @@ inline void Easy()
             {
                 //checks if the user has right-clicked on the grid
                 if (mouseButtonReleased->button == sf::Mouse::Button::Right)
-                {
+                {   //scan every cell in grid, check if mouse in cell
                     for (rows=0; rows<10; rows++)
                     {
                         for (columns=0; columns<10; columns++)
@@ -113,16 +112,16 @@ inline void Easy()
                                     Score.setString(scoreStream.str());
                                 }
                                 selected[rows][columns]=true;
-
+                                //if is mine
                                 if (grid[rows][columns])
                                 {
-                                    float cx = 712.f + 50.f*rows + 25.f;
-                                    float cy = 289.f + 50.f*columns + 25.f;
+                                    //location of mine
+                                    float cellCenterX = 712.f + 50.f*rows + 25.f;
+                                    float cellCenterY = 289.f + 50.f*columns + 25.f;
+                                    //trigger effects
                                     effects.spawn<ExplosionSoundEffect>("../../src/imagesAudio/explosion.wav");
-                                    effects.spawn<RingWaveEffect>(sf::Vector2f{cx,cy}, 0.f, 1300.f, 0.3f, sf::Color(255,80,30));
-                                    effects.spawn<ScreenFlashEffect>(sf::Color(255,255,255,220), 0.25f);
-
-
+                                    effects.spawn<RingWaveEffect>(sf::Vector2f{cellCenterX,cellCenterY}, 0.f, 600.f, 0.15f, sf::Color(255,80,30));
+                                    effects.spawn<ScreenFlashEffect>(sf::Color(255,255,255,220), 0.05f);
                                 }
                             }
                         }
@@ -130,8 +129,8 @@ inline void Easy()
                 }
             }
         }
-
-        effects.update(dt);
+            //update effects
+        effects.update(secsSinceLastFrame);
 
         loadScreen(easy, "../../src/imagesAudio/Minesweeper_easy.png");
         for (rows=0; rows<10; rows++)

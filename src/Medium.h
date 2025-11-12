@@ -11,13 +11,13 @@ inline void Medium()
 {
     int rows;
     int columns;
-    //grid is used to determine whether a square has a mine or not
+    //determine whether a square has a mine or not
     bool grid[20][20]={false};
-    //selected is used to determine whether a user has selected a square or not
+    //determine whether a user has selected a square or not
     bool selected[20][20]={false};
-    //scored is used to determine whether a selected square triggered by floodMedium has already been scored or not
+    //determine whether a selected square triggered by floodMedium has already been scored or not
     bool scored[20][20]={false};
-    //flagged is used to determine whether a user has placed a flag on a square or not
+    //determine whether a user has placed a flag on a square or not
     bool flagged[20][20]={false};
     int gameOver=0;
     int mines=0;
@@ -45,14 +45,13 @@ inline void Medium()
     Score.setString(scoreStream.str());
     medium.create(sf :: VideoMode({1920,1080}), "MINESWEEPER", sf :: State :: Fullscreen);
     medium.setFramerateLimit(60);
-
+    //create effect manager
     Effects effects;
-    sf::Clock clk;
-    auto baseCenter = medium.getView().getCenter();
+    sf::Clock clk;  //sfml stopwatch
 
     while (medium.isOpen())
     {
-        float dt = clk.restart().asSeconds();
+        float secsSinceLastFrame = clk.restart().asSeconds();
 
         while (const std :: optional event = medium.pollEvent())
         {
@@ -69,7 +68,7 @@ inline void Medium()
             {
                 //checks if the user has right-clicked on the grid
                 if (mouseButtonReleased->button == sf::Mouse::Button::Right)
-                {
+                {   //scan every cell in grid, check if mouse in cell
                     for (rows=0; rows<20; rows++)
                     {
                         for (columns=0; columns<20; columns++)
@@ -117,14 +116,15 @@ inline void Medium()
                                     Score.setString(scoreStream.str());
                                 }
                                 selected[rows][columns]=true;
-
+                                //if is mine
                                 if (grid[rows][columns])
-                                {
-                                    float cx = 610.f + 35.f*rows + 17.5f;
-                                    float cy = 190.f + 35.f*columns + 17.5f;
+                                {   //location of mine
+                                    float cellCenterX = 610.f + 35.f*rows + 17.5f;
+                                    float cellCenterY = 190.f + 35.f*columns + 17.5f;
+                                    //trigger effects
                                     effects.spawn<ExplosionSoundEffect>("../../src/imagesAudio/explosion.wav");
-                                    effects.spawn<RingWaveEffect>(sf::Vector2f{cx,cy}, 0.f, 1300.f, 0.3f, sf::Color(255,80,30));
-                                    effects.spawn<ScreenFlashEffect>(sf::Color(255,255,255,220), 0.25f);
+                                    effects.spawn<RingWaveEffect>(sf::Vector2f{cellCenterX,cellCenterY}, 0.f, 600.f, 0.1f, sf::Color(255,80,30));
+                                    effects.spawn<ScreenFlashEffect>(sf::Color(255,255,255,220), 0.05f);
                                 }
                             }
                         }
@@ -132,8 +132,8 @@ inline void Medium()
                 }
             }
         }
-
-        effects.update(dt);
+        //update effect
+        effects.update(secsSinceLastFrame);
         loadScreen(medium, "../../src/imagesAudio/Minesweeper_medium.png");
         for (rows=0; rows<20; rows++)
         {

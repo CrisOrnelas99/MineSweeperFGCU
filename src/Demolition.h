@@ -10,11 +10,11 @@ inline void Demolition()
 {
     int rows;
     int columns;
-    //grid is used to determine whether a square has a mine or not
+    //determine whether a square has a mine or not
     bool grid[20][20]={false};
-    //selected is used to determine whether a user has selected a square or not
+    //determine whether a user has selected a square or not
     bool selected[20][20]={false};
-    //scored is used to determine whether a selected mine has been scored or not
+    //determine whether a selected mine has been scored or not
     bool scored[20][20]={false};
     int gameOver=0;
     int mines=0;
@@ -56,15 +56,14 @@ inline void Demolition()
     Lives.setString(livesStream.str());
     demolition.create(sf :: VideoMode({1920,1080}), "MINESWEEPER", sf :: State :: Fullscreen);
     demolition.setFramerateLimit(60);
-
+    //create effects manager
     Effects effects;
-    sf::Clock clk;
-    auto baseCenter = demolition.getView().getCenter();
+    sf::Clock clk;  //sfml stopWatch
     bool didExplode=false;
 
     while (demolition.isOpen())
     {
-        float dt = clk.restart().asSeconds();
+        float secsSinceLastFrame = clk.restart().asSeconds();
 
         while (const std :: optional event = demolition.pollEvent())
         {
@@ -110,11 +109,12 @@ inline void Demolition()
 
                                     if (lives<=0 && !didExplode)
                                     {
-                                        float cx = 610.f + 35.f*rows + 17.5f;
-                                        float cy = 190.f + 35.f*columns + 17.5f;
+                                        //explode in center
+                                        const sf::Vector2f center = demolition.getView().getCenter();
+                                        //trigger effects
                                         effects.spawn<ExplosionSoundEffect>("../../src/imagesAudio/explosion.wav");
-                                        effects.spawn<RingWaveEffect>(sf::Vector2f{cx,cy}, 0.f, 1300.f, 0.3f, sf::Color(255,80,30));
-                                        effects.spawn<ScreenFlashEffect>(sf::Color(255,255,255,220), 0.25f);
+                                        effects.spawn<RingWaveEffect>(center, 0.f, 600.f, 0.1f, sf::Color(255,80,30));
+                                        effects.spawn<ScreenFlashEffect>(sf::Color(255,255,255,220), 0.05f);
                                         didExplode=true;
                                     }
                                 }
@@ -131,8 +131,8 @@ inline void Demolition()
                 }
             }
         }
-
-        effects.update(dt);
+        //update effects
+        effects.update(secsSinceLastFrame);
 
         loadScreen(demolition, "../../src/imagesAudio/Minesweeper_demolition.png");
 
