@@ -230,10 +230,10 @@ class RingWaveEffect : public Effect
     }
 
 
-    // dt = time since last frame in seconds
-    bool update(float dt) override
+    // time since last frame in seconds
+    bool update(float frameTimeSec) override
     {
-        elapsed += dt;
+        elapsed += frameTimeSec;
 
         float progress = elapsed / lifetime;
         if (progress < 0.f)
@@ -277,10 +277,10 @@ class ScreenFlashEffect : public Effect
     }
 
 
-    // dt = time since last frame in seconds
-    bool update(float dt) override
+    // time since last frame in seconds
+    bool update(float frameTimeSec) override
     {
-        elapsed += dt;
+        elapsed += frameTimeSec;
         return elapsed >= lifetime;  // finished when elapsed >= lifetime
     }
 
