@@ -1,3 +1,16 @@
+
+
+
+<img width="764" height="429" alt="image" src="https://github.com/user-attachments/assets/427e3039-cf47-4fb6-8597-7e1a054d630f" />
+<img width="1101" height="1125" alt="image" src="https://github.com/user-attachments/assets/f59536b0-d3d9-4d2d-a7a5-8775cc1d06f3" />
+<img width="1279" height="1125" alt="image" src="https://github.com/user-attachments/assets/cb02b185-796d-4e71-8e53-8906d6f7d9b4" />
+<img width="976" height="1125" alt="image" src="https://github.com/user-attachments/assets/80f5b398-98ba-44ef-b2e0-9ff5327777d5" />
+<img width="999" height="1141" alt="image" src="https://github.com/user-attachments/assets/3ab919ea-9408-4503-b0b3-04939f70f630" />
+<img width="1803" height="1068" alt="image" src="https://github.com/user-attachments/assets/085a0b79-c904-4aaa-833e-693355775eca" />
+
+
+
+
 # CMake SFML Project Template
 
 This repository template should allow for a fast and hassle-free kick start of your next SFML project using CMake.
@@ -99,3 +112,4 @@ Here are some useful resources if you want to learn more about CMake:
 ## License
 
 The source code is dual licensed under Public Domain and MIT -- choose whichever you prefer.
+
