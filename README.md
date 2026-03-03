@@ -1,304 +1,26 @@
-
-
-
-<img width="764" height="429" alt="image" src="https://github.com/user-attachments/assets/427e3039-cf47-4fb6-8597-7e1a054d630f" />
-<img width="1101" height="1125" alt="image" src="https://github.com/user-attachments/assets/f59536b0-d3d9-4d2d-a7a5-8775cc1d06f3" />
-<img width="1279" height="1125" alt="image" src="https://github.com/user-attachments/assets/cb02b185-796d-4e71-8e53-8906d6f7d9b4" />
-<img width="976" height="1125" alt="image" src="https://github.com/user-attachments/assets/80f5b398-98ba-44ef-b2e0-9ff5327777d5" />
-<img width="999" height="1141" alt="image" src="https://github.com/user-attachments/assets/3ab919ea-9408-4503-b0b3-04939f70f630" />
-<img width="1803" height="1068" alt="image" src="https://github.com/user-attachments/assets/085a0b79-c904-4aaa-833e-693355775eca" />
-
-
-
-💣 Minesweeper (C++ / SFML)
-
-A fully featured Minesweeper game built with C++ and SFML, featuring:
-
-🎮 Multiple difficulty modes (Easy / Medium / Hard)
-
-💥 Demolition mode (lives-based variant)
-
-✨ Custom visual & audio effects system
-
-🧱 Object-oriented architecture
-
-🛠 Built using CMake + SFML 3
-
-📸 Screenshots
-Title Screen
-<img width="764" alt="Title Screen" src="https://github.com/user-attachments/assets/427e3039-cf47-4fb6-8597-7e1a054d630f" />
-Difficulty Selection
-<img width="1101" alt="Difficulty Screen" src="https://github.com/user-attachments/assets/f59536b0-d3d9-4d2d-a7a5-8775cc1d06f3" />
-Game Mode
-<img width="1279" alt="Game Mode" src="https://github.com/user-attachments/assets/cb02b185-796d-4e71-8e53-8906d6f7d9b4" />
-Demolition Mode
-<img width="976" alt="Demolition Mode" src="https://github.com/user-attachments/assets/80f5b398-98ba-44ef-b2e0-9ff5327777d5" />
-Effects System
-<img width="999" alt="Effects System" src="https://github.com/user-attachments/assets/3ab919ea-9408-4503-b0b3-04939f70f630" />
-Gameplay Example
-<img width="1803" alt="Gameplay" src="https://github.com/user-attachments/assets/085a0b79-c904-4aaa-833e-693355775eca" />
-🎮 Game Features
-🏠 Title Screen
-
-Play
-
-Demolition Mode
-
-Exit
-
-🎯 Difficulty Mode
-
-Easy
-
-Medium
-
-Hard
-
-Back to Title
-
-💣 Classic Minesweeper Mode
-
-Left click → reveal tile
-
-Right click → flag tile
-
-Auto flood fill for empty cells
-
-Win when all safe cells are revealed
-
-Lose when clicking a mine
-
-Score system
-
-🔥 Demolition Mode
-
-A twist on classic Minesweeper:
-
-Player starts with 5 lives
-
-Clicking a mine reduces a life
-
-Game ends when lives reach 0
-
-Win when all mines are correctly identified
-
-✨ Effects System
-
-The game includes a polymorphic effects system:
-
-Abstract Base Class
-class Effect {
-public:
-    virtual bool update(float dt) = 0;
-    virtual void draw(sf::RenderWindow& window) = 0;
-    virtual ~Effect() = default;
-};
-Implemented Effects
-
-🔴 RingWaveEffect
-Expanding ring animation when mine explodes
-
-⚪ ScreenFlashEffect
-Flash overlay on explosion
-
-🔊 ExplosionSoundEffect
-Plays explosion audio
-
-Lifecycle
-
-Spawned when mine is triggered
-
-Updated every frame
-
-Automatically removed when finished
-
-🧠 Architecture Overview
-
-The project follows a state-driven screen system:
-
-Title Screen
-    ↓
-Difficulty Screen
-    ↓
-Game Mode (Easy/Medium/Hard)
-    ↓
-Game End
-
-Separate flow for:
-
-Title Screen
-    ↓
-Demolition Mode
-
-Each screen:
-
-Creates its own window context
-
-Handles events
-
-Loads UI images
-
-Manages transitions
-
-🛠 Technologies Used
-
-C++17
-
-SFML 3
-
-Graphics
-
-Window
-
-Audio
-
-CMake
-
-GitHub Actions (CI template included)
-
-📦 Building the Project
-🔧 Requirements
-
-CMake (3.16+ recommended)
-
-C++17 compatible compiler
-
-Git
-
-Internet connection (FetchContent downloads SFML automatically)
-
-🖥 Build Instructions
-
-From project root:
-
-cmake -B build
-cmake --build build
-
-Then run:
-
-./build/<your-executable-name>
-🐧 Linux Dependencies (Ubuntu/Debian)
-sudo apt update
-sudo apt install \
-    libxrandr-dev \
-    libxcursor-dev \
-    libxi-dev \
-    libudev-dev \
-    libfreetype-dev \
-    libflac-dev \
-    libvorbis-dev \
-    libgl1-mesa-dev \
-    libegl1-mesa-dev
-🎯 Controls
-Action	Input
-Reveal tile	Left Click
-Flag tile	Right Click
-Reset	Reset Button
-Back	Back Button
-Exit	ESC
-📂 Project Structure
-.
-├── src/
-│   ├── main.cpp
-│   ├── Game.cpp
-│   ├── Demolition.cpp
-│   ├── Effects/
-│   │   ├── Effect.hpp
-│   │   ├── RingWaveEffect.cpp
-│   │   ├── ScreenFlashEffect.cpp
-│   │   └── ExplosionSoundEffect.cpp
-│   └── ...
-├── assets/
-│   ├── images/
-│   ├── audio/
-│   └── fonts/
-├── CMakeLists.txt
-└── README.md
-🏆 Win / Lose Conditions
-Classic Mode
-
-✅ Win → All safe cells revealed
-
-❌ Lose → Mine clicked
-
-Demolition Mode
-
-✅ Win → All mines identified
-
-❌ Lose → Lives reach 0
-
-🚀 Possible Improvements
-
-High score saving
-
-Timer
-
-Custom board size
-
-Animations for tile flipping
-
-Particle system upgrade
-
-Save/load system
-
-Mobile adaptation
-
-📜 License
-
-This project uses the SFML CMake template.
-
-The template is dual licensed under:
-
-Public Domain
-
-MIT License
-
-Choose whichever you prefer.
-
-👨‍💻 Author
-
-Developed as a complete C++/SFML project demonstrating:
-
-Object-Oriented Design
-
-Polymorphism
-
-State management
-
-Event-driven programming
-
-Real-time rendering loop
-
-Resource management
-
-If you'd like, I can also generate:
-
-✅ A cleaner professional version for portfolio use
-
-✅ A minimal academic submission version
-
-✅ A flashy showcase version
-
-✅ A version with UML diagrams included
-
-✅ A version tailored for recruiters
-
-Just tell me your target audience 👌
-
-this is the directory
-
-Perfect — based on your actual project directory structure, here is a clean, accurate, and professional README.md tailored exactly to your repository layout.
-
-You can replace your current README with this:
-
-💣 Minesweeper – C++ / SFML
+##💣 Minesweeper – C++ / SFML
 
 A fully-featured Minesweeper game built in C++ using SFML, featuring multiple game modes, difficulty levels, and a custom polymorphic effects system.
 
 Built using CMake + SFML 3 with cross-platform support.
 
-🎮 Features
-🏠 Title Screen
+
+##📸 Screenshots
+#Title Screen
+<img width="764" alt="Title Screen" src="https://github.com/user-attachments/assets/427e3039-cf47-4fb6-8597-7e1a054d630f" />
+#Difficulty Selection
+<img width="1101" alt="Difficulty Screen" src="https://github.com/user-attachments/assets/f59536b0-d3d9-4d2d-a7a5-8775cc1d06f3" />
+#Game Mode
+<img width="1279" alt="Game Mode" src="https://github.com/user-attachments/assets/cb02b185-796d-4e71-8e53-8906d6f7d9b4" />
+#Demolition Mode
+<img width="976" alt="Demolition Mode" src="https://github.com/user-attachments/assets/80f5b398-98ba-44ef-b2e0-9ff5327777d5" />
+#Effects System
+<img width="999" alt="Effects System" src="https://github.com/user-attachments/assets/3ab919ea-9408-4503-b0b3-04939f70f630" />
+#Gameplay Example
+<img width="1803" alt="Gameplay" src="https://github.com/user-attachments/assets/085a0b79-c904-4aaa-833e-693355775eca" />
+
+##🎮 Features
+#🏠 Title Screen
 
 Play
 
@@ -306,7 +28,7 @@ Demolition Mode
 
 Exit
 
-🎯 Difficulty Selection
+#🎯 Difficulty Selection
 
 Easy
 
@@ -316,7 +38,7 @@ Hard
 
 Back to Title
 
-💣 Classic Mode
+#💣 Classic Mode
 
 Left-click to reveal tiles
 
@@ -330,7 +52,7 @@ Win when all safe tiles are revealed
 
 Lose when clicking a mine
 
-🔥 Demolition Mode (Arcade Variant)
+#🔥 Demolition Mode (Arcade Variant)
 
 Start with 5 lives
 
@@ -342,7 +64,7 @@ Win when all mines are identified
 
 Includes explosion visual & sound effects
 
-✨ Effects System (Polymorphism)
+#✨ Effects System (Polymorphism)
 
 The game includes a modular, object-oriented effects system.
 
@@ -369,7 +91,7 @@ Updated every frame
 
 Automatically removed when finished
 
-🧠 Architecture Overview
+##🧠 Architecture Overview
 
 The project follows a screen/state-driven structure:
 
@@ -390,7 +112,7 @@ Loads UI assets
 
 Manages transitions independently
 
-📂 Project Structure
+##📂 Project Structure
 
 Based on your current repository:
 
@@ -413,7 +135,7 @@ Based on your current repository:
 ├── CMakeLists.txt
 ├── LICENSE.md
 └── README.md
-🛠 Technologies Used
+##🛠 Technologies Used
 
 C++17
 
@@ -427,10 +149,10 @@ Audio
 
 CMake
 
-GitHub Actions (CI workflow included)
+##GitHub Actions (CI workflow included)
 
 🚀 Building the Project
-🔧 Requirements
+#🔧 Requirements
 
 CMake 3.16+
 
@@ -440,7 +162,7 @@ Git
 
 Internet connection (SFML fetched automatically)
 
-🖥 Build Instructions
+#🖥 Build Instructions
 
 From the project root:
 
@@ -478,13 +200,13 @@ Reset	Reset Button
 Back	Back Button
 Exit	ESC
 🏆 Win / Lose Conditions
-Classic Mode
+#Classic Mode
 
 ✅ Win → All safe cells revealed
 
 ❌ Lose → Mine clicked
 
-Demolition Mode
+#Demolition Mode
 
 ✅ Win → All mines identified
 
@@ -524,7 +246,7 @@ Save/load functionality
 
 Refactor into explicit state manager class
 
-📜 License
+#📜 License
 
 This project uses the SFML CMake template.
 
@@ -535,4 +257,5 @@ Public Domain
 MIT License
 
 Choose whichever you prefer.
+
 
