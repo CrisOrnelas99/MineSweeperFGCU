@@ -10,106 +10,529 @@
 
 
 
+💣 Minesweeper (C++ / SFML)
 
-# CMake SFML Project Template
+A fully featured Minesweeper game built with C++ and SFML, featuring:
 
-This repository template should allow for a fast and hassle-free kick start of your next SFML project using CMake.
-Thanks to [GitHub's nature of templates](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), you can fork this repository without inheriting its Git history.
+🎮 Multiple difficulty modes (Easy / Medium / Hard)
 
-The template starts out very basic, but might receive additional features over time:
+💥 Demolition mode (lives-based variant)
 
-- Basic CMake script to build your project and link SFML on any operating system
-- Basic [GitHub Actions](https://github.com/features/actions) script for all major platforms
+✨ Custom visual & audio effects system
 
-## How to Use
+🧱 Object-oriented architecture
 
-1. Install [Git](https://git-scm.com/downloads) and [CMake](https://cmake.org/download/). Use your system's package manager if available.
-2. Follow [GitHub's instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for how to use their project template feature to create your own project. If you don't want to use GitHub, see the section below.
-3. Clone your new GitHub repo and open the repo in your text editor of choice.
-4. Open [CMakeLists.txt](CMakeLists.txt). Rename the project and the target name of the executable to whatever name you want. Make sure to change all occurrences.
-5. If you want to add or remove any .cpp files, change the source files listed in the `add_executable` call in CMakeLists.txt to match the source files your project requires. If you plan on keeping the default main.cpp file then no changes are required.
-6. If your code uses the Audio or Network modules then add `SFML::Audio` or `SFML::Network` to the `target_link_libraries` call alongside the existing `SFML::Graphics` library that is being linked.
-7. If you use Linux, install SFML's dependencies using your system package manager. On Ubuntu and other Debian-based distributions you can use the following commands:
-   ```
-   sudo apt update
-   sudo apt install \
-       libxrandr-dev \
-       libxcursor-dev \
-       libxi-dev \
-       libudev-dev \
-       libfreetype-dev \
-       libflac-dev \
-       libvorbis-dev \
-       libgl1-mesa-dev \
-       libegl1-mesa-dev \
-       libfreetype-dev
-   ```
-8. Configure and build your project. Most popular IDEs support CMake projects with very little effort on your part.
+🛠 Built using CMake + SFML 3
 
-   - [VS Code](https://code.visualstudio.com) via the [CMake extension](https://code.visualstudio.com/docs/cpp/cmake-linux)
-   - [Visual Studio](https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=msvc-170)
-   - [CLion](https://www.jetbrains.com/clion/features/cmake-support.html)
-   - [Qt Creator](https://doc.qt.io/qtcreator/creator-project-cmake.html)
+📸 Screenshots
+Title Screen
+<img width="764" alt="Title Screen" src="https://github.com/user-attachments/assets/427e3039-cf47-4fb6-8597-7e1a054d630f" />
+Difficulty Selection
+<img width="1101" alt="Difficulty Screen" src="https://github.com/user-attachments/assets/f59536b0-d3d9-4d2d-a7a5-8775cc1d06f3" />
+Game Mode
+<img width="1279" alt="Game Mode" src="https://github.com/user-attachments/assets/cb02b185-796d-4e71-8e53-8906d6f7d9b4" />
+Demolition Mode
+<img width="976" alt="Demolition Mode" src="https://github.com/user-attachments/assets/80f5b398-98ba-44ef-b2e0-9ff5327777d5" />
+Effects System
+<img width="999" alt="Effects System" src="https://github.com/user-attachments/assets/3ab919ea-9408-4503-b0b3-04939f70f630" />
+Gameplay Example
+<img width="1803" alt="Gameplay" src="https://github.com/user-attachments/assets/085a0b79-c904-4aaa-833e-693355775eca" />
+🎮 Game Features
+🏠 Title Screen
 
-   Using CMake from the command line is straightforward as well.
-   Be sure to run these commands in the root directory of the project you just created.
+Play
 
-   ```
-   cmake -B build
-   cmake --build build
-   ```
+Demolition Mode
 
-9. Enjoy!
+Exit
 
-## Upgrading SFML
+🎯 Difficulty Mode
 
-SFML is found via CMake's [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) module.
-FetchContent automatically downloads SFML from GitHub and builds it alongside your own code.
-Beyond the convenience of not having to install SFML yourself, this ensures ABI compatibility and simplifies things like specifying static versus shared libraries.
+Easy
 
-Modifying what version of SFML you want is as easy as changing the `GIT_TAG` argument.
-Currently it uses SFML 3 via the `3.0.0` tag.
+Medium
 
-## But I want to...
+Hard
 
-Modify CMake options by adding them as configuration parameters (with a `-D` flag) or by modifying the contents of CMakeCache.txt and rebuilding.
+Back to Title
 
-### Not use GitHub
+💣 Classic Minesweeper Mode
 
-You can use this project without a GitHub account by [downloading the contents](https://github.com/SFML/cmake-sfml-project/archive/refs/heads/master.zip) of the repository as a ZIP archive and unpacking it locally.
-This approach also avoids using Git entirely if you would prefer to not do that.
+Left click → reveal tile
 
-### Change Compilers
+Right click → flag tile
 
-See the variety of [`CMAKE_<LANG>_COMPILER`](https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_COMPILER.html) options.
-In particular you'll want to modify `CMAKE_CXX_COMPILER` to point to the C++ compiler you wish to use.
+Auto flood fill for empty cells
 
-### Change Compiler Optimizations
+Win when all safe cells are revealed
 
-CMake abstracts away specific optimizer flags through the [`CMAKE_BUILD_TYPE`](https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html) option.
-By default this project recommends `Release` builds which enable optimizations.
-Other build types include `Debug` builds which enable debug symbols but disable optimizations.
-If you're using a multi-configuration generator (as is often the case on Windows), you can modify the [`CMAKE_CONFIGURATION_TYPES`](https://cmake.org/cmake/help/latest/variable/CMAKE_CONFIGURATION_TYPES.html#variable:CMAKE_CONFIGURATION_TYPES) option.
+Lose when clicking a mine
 
-### Change Generators
+Score system
 
-While CMake will attempt to pick a suitable default generator, some systems offer a number of generators to choose from.
-Ubuntu, for example, offers Makefiles and Ninja as two potential options.
-For a list of generators, click [here](https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html).
-To modify the generator you're using you must reconfigure your project providing a `-G` flag with a value corresponding to the generator you want.
-You can't simply modify an entry in the CMakeCache.txt file unlike the above options.
-Then you may rebuild your project with this new generator.
+🔥 Demolition Mode
 
-## More Reading
+A twist on classic Minesweeper:
 
-Here are some useful resources if you want to learn more about CMake:
+Player starts with 5 lives
 
-- [Official CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/)
-- [How to Use CMake Without the Agonizing Pain - Part 1](https://alexreinking.com/blog/how-to-use-cmake-without-the-agonizing-pain-part-1.html)
-- [How to Use CMake Without the Agonizing Pain - Part 2](https://alexreinking.com/blog/how-to-use-cmake-without-the-agonizing-pain-part-2.html)
-- [Better CMake YouTube series by Jefferon Amstutz](https://www.youtube.com/playlist?list=PL8i3OhJb4FNV10aIZ8oF0AA46HgA2ed8g)
+Clicking a mine reduces a life
 
-## License
+Game ends when lives reach 0
 
-The source code is dual licensed under Public Domain and MIT -- choose whichever you prefer.
+Win when all mines are correctly identified
+
+✨ Effects System
+
+The game includes a polymorphic effects system:
+
+Abstract Base Class
+class Effect {
+public:
+    virtual bool update(float dt) = 0;
+    virtual void draw(sf::RenderWindow& window) = 0;
+    virtual ~Effect() = default;
+};
+Implemented Effects
+
+🔴 RingWaveEffect
+Expanding ring animation when mine explodes
+
+⚪ ScreenFlashEffect
+Flash overlay on explosion
+
+🔊 ExplosionSoundEffect
+Plays explosion audio
+
+Lifecycle
+
+Spawned when mine is triggered
+
+Updated every frame
+
+Automatically removed when finished
+
+🧠 Architecture Overview
+
+The project follows a state-driven screen system:
+
+Title Screen
+    ↓
+Difficulty Screen
+    ↓
+Game Mode (Easy/Medium/Hard)
+    ↓
+Game End
+
+Separate flow for:
+
+Title Screen
+    ↓
+Demolition Mode
+
+Each screen:
+
+Creates its own window context
+
+Handles events
+
+Loads UI images
+
+Manages transitions
+
+🛠 Technologies Used
+
+C++17
+
+SFML 3
+
+Graphics
+
+Window
+
+Audio
+
+CMake
+
+GitHub Actions (CI template included)
+
+📦 Building the Project
+🔧 Requirements
+
+CMake (3.16+ recommended)
+
+C++17 compatible compiler
+
+Git
+
+Internet connection (FetchContent downloads SFML automatically)
+
+🖥 Build Instructions
+
+From project root:
+
+cmake -B build
+cmake --build build
+
+Then run:
+
+./build/<your-executable-name>
+🐧 Linux Dependencies (Ubuntu/Debian)
+sudo apt update
+sudo apt install \
+    libxrandr-dev \
+    libxcursor-dev \
+    libxi-dev \
+    libudev-dev \
+    libfreetype-dev \
+    libflac-dev \
+    libvorbis-dev \
+    libgl1-mesa-dev \
+    libegl1-mesa-dev
+🎯 Controls
+Action	Input
+Reveal tile	Left Click
+Flag tile	Right Click
+Reset	Reset Button
+Back	Back Button
+Exit	ESC
+📂 Project Structure
+.
+├── src/
+│   ├── main.cpp
+│   ├── Game.cpp
+│   ├── Demolition.cpp
+│   ├── Effects/
+│   │   ├── Effect.hpp
+│   │   ├── RingWaveEffect.cpp
+│   │   ├── ScreenFlashEffect.cpp
+│   │   └── ExplosionSoundEffect.cpp
+│   └── ...
+├── assets/
+│   ├── images/
+│   ├── audio/
+│   └── fonts/
+├── CMakeLists.txt
+└── README.md
+🏆 Win / Lose Conditions
+Classic Mode
+
+✅ Win → All safe cells revealed
+
+❌ Lose → Mine clicked
+
+Demolition Mode
+
+✅ Win → All mines identified
+
+❌ Lose → Lives reach 0
+
+🚀 Possible Improvements
+
+High score saving
+
+Timer
+
+Custom board size
+
+Animations for tile flipping
+
+Particle system upgrade
+
+Save/load system
+
+Mobile adaptation
+
+📜 License
+
+This project uses the SFML CMake template.
+
+The template is dual licensed under:
+
+Public Domain
+
+MIT License
+
+Choose whichever you prefer.
+
+👨‍💻 Author
+
+Developed as a complete C++/SFML project demonstrating:
+
+Object-Oriented Design
+
+Polymorphism
+
+State management
+
+Event-driven programming
+
+Real-time rendering loop
+
+Resource management
+
+If you'd like, I can also generate:
+
+✅ A cleaner professional version for portfolio use
+
+✅ A minimal academic submission version
+
+✅ A flashy showcase version
+
+✅ A version with UML diagrams included
+
+✅ A version tailored for recruiters
+
+Just tell me your target audience 👌
+
+this is the directory
+
+Perfect — based on your actual project directory structure, here is a clean, accurate, and professional README.md tailored exactly to your repository layout.
+
+You can replace your current README with this:
+
+💣 Minesweeper – C++ / SFML
+
+A fully-featured Minesweeper game built in C++ using SFML, featuring multiple game modes, difficulty levels, and a custom polymorphic effects system.
+
+Built using CMake + SFML 3 with cross-platform support.
+
+🎮 Features
+🏠 Title Screen
+
+Play
+
+Demolition Mode
+
+Exit
+
+🎯 Difficulty Selection
+
+Easy
+
+Medium
+
+Hard
+
+Back to Title
+
+💣 Classic Mode
+
+Left-click to reveal tiles
+
+Right-click to flag tiles
+
+Automatic flood fill for empty cells
+
+Score system
+
+Win when all safe tiles are revealed
+
+Lose when clicking a mine
+
+🔥 Demolition Mode (Arcade Variant)
+
+Start with 5 lives
+
+Clicking a mine reduces a life
+
+Game ends when lives reach 0
+
+Win when all mines are identified
+
+Includes explosion visual & sound effects
+
+✨ Effects System (Polymorphism)
+
+The game includes a modular, object-oriented effects system.
+
+Abstract Base Class
+class Effect {
+public:
+    virtual bool update(float dt) = 0;
+    virtual void draw(sf::RenderWindow& window) = 0;
+    virtual ~Effect() = default;
+};
+Implemented Effects
+
+RingWaveEffect – Expanding ring animation
+
+ScreenFlashEffect – Flash overlay
+
+ExplosionSoundEffect – Explosion audio
+
+Lifecycle
+
+Spawned dynamically when a mine is triggered
+
+Updated every frame
+
+Automatically removed when finished
+
+🧠 Architecture Overview
+
+The project follows a screen/state-driven structure:
+
+Title
+ ├── Difficulty
+ │     ├── Easy
+ │     ├── Medium
+ │     └── Hard
+ └── Demolition Mode
+
+Each mode:
+
+Creates its own window
+
+Handles events
+
+Loads UI assets
+
+Manages transitions independently
+
+📂 Project Structure
+
+Based on your current repository:
+
+.
+├── .github/workflows/      # GitHub Actions CI
+├── cmake-build-debug/      # CMake build output
+├── cmake-build-debug-even... 
+├── src/                    # Source files
+│   ├── main.cpp
+│   ├── Title.h
+│   ├── Difficulty.h
+│   ├── Easy.h
+│   ├── Medium.h
+│   ├── Hard.h
+│   ├── Demolition.h
+│   └── Effects.h
+│
+├── imagesAudio/            # Game images & sounds
+├── CascadiaCode.ttf        # Font
+├── CMakeLists.txt
+├── LICENSE.md
+└── README.md
+🛠 Technologies Used
+
+C++17
+
+SFML 3
+
+Graphics
+
+Window
+
+Audio
+
+CMake
+
+GitHub Actions (CI workflow included)
+
+🚀 Building the Project
+🔧 Requirements
+
+CMake 3.16+
+
+C++17 compatible compiler
+
+Git
+
+Internet connection (SFML fetched automatically)
+
+🖥 Build Instructions
+
+From the project root:
+
+cmake -B build
+cmake --build build
+
+Run the executable:
+
+./build/<your-executable-name>
+
+On Windows (Visual Studio generator):
+
+cmake -B build -G "Visual Studio 17 2022"
+cmake --build build --config Release
+🐧 Linux Dependencies (Ubuntu/Debian)
+
+If using Linux, install SFML dependencies:
+
+sudo apt update
+sudo apt install \
+    libxrandr-dev \
+    libxcursor-dev \
+    libxi-dev \
+    libudev-dev \
+    libfreetype-dev \
+    libflac-dev \
+    libvorbis-dev \
+    libgl1-mesa-dev \
+    libegl1-mesa-dev
+🎮 Controls
+Action	Input
+Reveal tile	Left Click
+Flag tile	Right Click
+Reset	Reset Button
+Back	Back Button
+Exit	ESC
+🏆 Win / Lose Conditions
+Classic Mode
+
+✅ Win → All safe cells revealed
+
+❌ Lose → Mine clicked
+
+Demolition Mode
+
+✅ Win → All mines identified
+
+❌ Lose → Lives reach 0
+
+📈 Learning Objectives Demonstrated
+
+Object-Oriented Programming
+
+Polymorphism
+
+Abstract Base Classes
+
+Event-driven architecture
+
+Real-time rendering loop
+
+Resource management
+
+CMake project configuration
+
+SFML Graphics & Audio integration
+
+🔮 Future Improvements
+
+High score saving
+
+Timer
+
+Custom board sizes
+
+Tile animations
+
+Particle system
+
+Save/load functionality
+
+Refactor into explicit state manager class
+
+📜 License
+
+This project uses the SFML CMake template.
+
+The template is dual licensed under:
+
+Public Domain
+
+MIT License
+
+Choose whichever you prefer.
 
